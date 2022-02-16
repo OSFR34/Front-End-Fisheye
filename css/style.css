@@ -18,6 +18,9 @@ h1 {
     color: #901C1C;
     margin-right: 100px;
 }
+h2 {
+    margin-top: 1px;
+}
 
 .logo {
     height: 50px;
@@ -44,7 +47,26 @@ h1 {
     font-size: 36px;
 }
 
-.photographer_section article img {
-    height: 200px;
-    width: 200px;
+.photographer_section article img{
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.photographer_section article p {
+    margin-top: -15px;
+}
+.photographer_city_country {
+    /* font-size: 13px; */
+    color: rgb(177, 75, 75); 
+}
+.photographer_description {
+    font-weight: bold;
+    font-size: 0.75rem;
+    /* margin-top: -10px !important; */
+    padding-bottom: 0.35rem;
+}
+.photographer_price {
+    font-size: 0.8rem;
+    color: rgb(163, 163, 163);
 }
