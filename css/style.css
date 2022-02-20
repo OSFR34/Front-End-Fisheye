@@ -1,7 +1,7 @@
 @import url("photographer.css");
 
 body {
-    font-family: "DM Sans", sans-serif;
+    font-family: "DM Sans", "sans-serif";
     margin: 0 auto;
 }
 
@@ -67,7 +67,7 @@ h2 {
 }
 .photographer_price {
     font-size: 0.8rem;
-    color: rgba(163, 163, 163, 0.137);
+    color: rgba(163, 163, 163, 0.737);
 }
 /* PHOTOGRAPHER.HTML */
 /* header */
