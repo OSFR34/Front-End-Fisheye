@@ -72,7 +72,7 @@ h2 {
 }
 .photographer_description {
     font-weight: bold;
-    font-size: 0.75rem;
+    font-size: 1.25rem;
     /* margin-top: -10px !important; */
     padding-bottom: 0.35rem;
 }
@@ -92,7 +92,7 @@ h2 {
     background-color: rgba(128, 128, 128, 0.061);
     padding: 50px;
     border-radius: 15px;
-    border: solid green 2px;
+    /* border: solid green 2px; */
 }
 .box {
     display: flex;
@@ -114,9 +114,10 @@ h2 {
     width: 9rem;
     border-radius: 50%;
     object-fit: cover;
+    box-shadow: rgb(82, 82, 82) 0px 2px 16px -6px;
 }
 .photographer_city_country {
-    font-size: 105%;
+    font-size: 120%;
     font-weight: bold;
 }
 
@@ -140,32 +141,24 @@ h2 {
     font-size: 36px;
 }
 
-/* .photographer_section article img, photographer_header img{
-    height: 220px;
-    width: 220px;
-    border-radius: 5%;
-    object-fit: cover;
-} */
 /* Menu déroulant page photographer */
 
 .menu-burger-gallery {
     margin: 0px 5px 100px 60px;
+    font-family: DM sans;
 }
 
 select {
-    height: 30px;
+    height: 50px;
     background-color: #901C1C;
     border: none;
     border-radius: 5px;
     color: white;
-    padding: 5px;    
+    padding: 5px; 
+    font-size: 18px;   
 }
 select:first-child active{
     display: none;
-    
-    /* border-radius: 5px 5px 0px 0px;
-    background-color:#901C1C;
-    border-top: solid white 1px; */
 }
 select:active 
 select:hover >option{
@@ -187,31 +180,36 @@ border-radius: 5px 5px 0px 0px;
 #gallery{    
     display:flex;
     flex-wrap:wrap;
-    padding:50px;
-    background:#eeeeee;
-    gap:50px; 
-    /* margin: 50px; */
+    justify-content: center;
+    padding:60px; 
+    gap:70px; 
+   
 }
 .gallery-element{   
    background:#ffffff;
-   height:300px;
-   width:calc( (100% / 3) - (100px / 3));   
+   height:350px;
+   width:calc( (100% / 3) - (140 / 3));   
+  
 }
 .article-media{ 
-     width:100%;
+     width:300px;
      display:inline-block;
      object-fit:cover;
      height: 80%; 
-     border: 2px red solid ; 
+     /* border: 2px red solid ;  */
      border-radius: 5px;  
+     box-shadow: rgb(82, 82, 82) 0px 2px 16px -6px;
 }
+
 
 .description-element{  
    height:20%;
    margin-top:-5px;
    padding-top:15px;
    padding-bottom:15px;
-   position:relative;  
+   position:relative; 
+   font-size: 1.1rem; 
+   color: #901C1C;
 }
 .picture-name {
     padding-left: 15px;
