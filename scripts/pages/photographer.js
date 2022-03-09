@@ -92,10 +92,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
                   htmlMedias += `
                   
                     <div class="gallery-element">        
-                    <img src="assets/images/medias/${media.image}" class="article-media" alt=${media.title} />
+                        ${mediaFactory(media)}
                         <div class="description-element">
                         <span class="picture-name">${media.title}</span>
-                        <span class="likes-area">${media.price}€<i class="s fa-heart"></i></span>
+                        <span class="likes-area">${media.price}<i class="s fa-heart"></i></span>
                     </div>        
                     </div>
                   
