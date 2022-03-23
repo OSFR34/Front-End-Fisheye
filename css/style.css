@@ -5,23 +5,24 @@
     list-style: none;
     text-decoration: none;
     border: none;
+    
 }
 
 body {
     font-family: "DM Sans", "sans-serif";
 }
-/* #bloc-page {
-    max-width: 1000px;
+#bloc-page {
+    max-width: 1400px;
     margin: auto;
-} */
+}
 
 
 header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    height: 90px;
+    .closeSuccesMessage */
+    height: 120px;
 }
 
 h1 {
@@ -29,12 +30,12 @@ h1 {
     margin-right: 100px;
 }
 h2 {
-    margin-top: 1px;
+    margin-top: 25px;
 }
 
 .logo {
     height: 50px;
-    margin-left: 100px;
+    margin-left: 110px;
 }
 
 .photographer_section {
@@ -54,12 +55,12 @@ h2 {
 
 .photographer_section article h2 {
     color: #D3573C;
-    font-size: 36px;
+    font-size: 110%;
 }
 
 .photographer_section article img, photographer_header img{
-    height: 220px;
-    width: 220px;
+    height: 15rem;
+    width: 15rem;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: rgb(82, 82, 82) 0px 2px 16px -6px;
@@ -71,14 +72,15 @@ h2 {
     color: rgb(177, 75, 75); 
 }
 .photographer_description {
-    font-weight: bold;
-    font-size: 1.25rem;
+    font-weight: 510;
+    font-size: 1.15rem;
     /* margin-top: -10px !important; */
     padding-bottom: 0.35rem;
 }
 .photographer_price {
-    font-size: 0.8rem;
-    color: rgba(163, 163, 163, 0.737);
+    font-size: 1.05rem;
+    font-weight: 510;
+    color: rgba(163, 163, 163,0.9);
 }
 /* PHOTOGRAPHER.HTML */
 /* header */
@@ -88,10 +90,11 @@ h2 {
     flex-direction: row; 
     justify-content: space-between;
     align-items: center;  
-    margin: 60px;
+    margin: 50px 110px 50px 110px;
     background-color: rgba(128, 128, 128, 0.061);
-    padding: 50px;
-    border-radius: 15px;
+    padding: 20px 50px 20px 50px;
+    border-radius: 5px;
+    box-shadow: rgb(82 82 82 / 55%) 0px 2px 16px -6px;
     /* border: solid green 2px; */
 }
 .box {
@@ -110,15 +113,15 @@ h2 {
 }
 
 .photographer-header  img{
-    height: 9rem;
-    width: 9rem;
+    height: 11rem;
+    width: 11rem;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: rgb(82, 82, 82) 0px 2px 16px -6px;
 }
 .photographer_city_country {
-    font-size: 120%;
-    font-weight: bold;
+    font-size: 1.4rem;
+    font-weight: 600;
 }
 
 
@@ -138,24 +141,29 @@ h2 {
 
 .photographer_section article h2 {
     color: #D3573C;
-    font-size: 36px;
+    font-size: 2.4rem;
+    font-family: Arial;
+    font-weight: bold;
+    margin: 0px 0px 18px;
 }
 
 /* Menu déroulant page photographer */
 
 .menu-burger-gallery {
-    margin: 0px 5px 100px 60px;
+    margin: 0px 5px 100px 110px;
     font-family: DM sans;
+    font-weight: 550;
 }
 
 select {
-    height: 50px;
+    height: 45px;
     background-color: #901C1C;
     border: none;
     border-radius: 5px;
     color: white;
-    padding: 5px; 
-    font-size: 18px;   
+    padding: 9px; 
+    font-size: 0.95rem;  
+    letter-spacing: 1px; 
 }
 select:first-child active{
     display: none;
@@ -176,6 +184,9 @@ border-radius: none;
 /* : white 1px solid; */
 border-radius: 5px 5px 0px 0px;
 }
+
+
+
 /* gallerie photographe */
 #gallery{    
     display:flex;
@@ -192,11 +203,10 @@ border-radius: 5px 5px 0px 0px;
   
 }
 .article-media{ 
-     width:300px;
+     width:350px;
      display:inline-block;
      object-fit:cover;
-     height: 80%; 
-     /* border: 2px red solid ;  */
+     height: 300px; 
      border-radius: 5px;  
      box-shadow: rgb(82, 82, 82) 0px 2px 16px -6px;
 }
@@ -205,15 +215,14 @@ border-radius: 5px 5px 0px 0px;
 .description-element{  
    height:20%;
    margin-top:-5px;
-   padding-top:15px;
+   padding-top:25px;
    padding-bottom:15px;
    position:relative; 
-   font-size: 1.1rem; 
+   font-size: 1rem; 
    color: #901C1C;
+   line-height: 0.7px;
 }
-.picture-name {
-    padding-left: 15px;
-}
+
 .likes-area{ 
   position:absolute;
   top:15px;

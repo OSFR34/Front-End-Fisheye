@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         ${mediaFactory(media)}
                         <div class="description-element">
                         <span class="picture-name">${media.title}</span>
-                        <span class="likes-area">${media.price}<i class="s fa-heart"></i></span>
+                        <span class="likes-area">${media.likes}<i class="far fa-heart"></i></span>
                     </div>        
                     </div>
                   
