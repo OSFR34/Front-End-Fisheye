@@ -22,6 +22,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
             displayPhotographerMedia(photographerMediasArray);
 
+            document.addEventListener("change", (event)=>{
+
+                displayPhotographerMedia(filterMedias(event.target.value, photographerMediasArray));
+    
+            });
+
        }).catch((error)=>{
 
             console.log(error)
@@ -105,5 +111,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
              document.querySelector("#gallery").innerHTML = htmlMedias;
        }
+
 
 });
