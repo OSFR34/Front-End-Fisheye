@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
              
              `;
 
-              
+              //  injection dans le dom du résultat de photographerHTML, au niveau de la class photographer-header.
               document.querySelector(".photographer-header").innerHTML = photographerHTML;
 
        }
@@ -88,13 +88,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
             });
 
        }
-
+// Affichage de tous les médias par photographe avec comme paramètre le tableau des médias
        function displayPhotographerMedia(arrayMedias){
 
               let htmlMedias = "";
-
+            // récupération de chaque médias ds le tableau des médias
              arrayMedias.forEach((media)=>{
-
+                    // permet la concaténation de htmlMédia avec le contenu des bactiques.
                   htmlMedias += `
                   
                     <div class="gallery-element">        
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                   `;
 
              });
-
+            //  injection dans le dom du résultat de htmlMedias, au niveau de l'id gallery.
              document.querySelector("#gallery").innerHTML = htmlMedias;
        }
 

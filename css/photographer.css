@@ -45,7 +45,7 @@
     padding: 0px 20px 10px 20px;
     margin: auto;
     margin-top: 45px;
-    min-height: 90vh;
+    min-height: 65vh;
    
 }
 
@@ -54,11 +54,11 @@
     width: 100%;
 }
 
-.modal header img, {
+.modal header img {
     cursor: pointer;
     margin-top:0px;
     height: 1.1rem;
-    display: "none";
+    display: none;
 }
 
 .modal header h2 {
