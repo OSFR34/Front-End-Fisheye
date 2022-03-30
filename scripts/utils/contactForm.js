@@ -15,6 +15,7 @@ const firstName = document.getElementById('first');
 const lastName = document.getElementById('last');
 const email = document.getElementById('email');
 const message = document.getElementById('message-boxTextarea');
+const messageHeaderModal = document.querySelector('#message_header_modal')
 
 
 //REGEX
@@ -110,13 +111,16 @@ document.querySelector(".btn-submit").addEventListener("click", function(event){
 
     if(resultVerifFirstfName === true && resultVerifLastfName === true && resultVerifEmailValue && resultVerifMessageValue === true) {
 
-        // j'affiche le message de validation du formulaire
+       
+        // je conserve la modal et le formulaire puis je vide le formulaire
 
         const modalGlobal = document.querySelector(".modal");
         
         const form = document.querySelector("#form");
 
         form.reset();
+
+     // je créee le message de validation du formulaire
 
     const successMessage = `
 

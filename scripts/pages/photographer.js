@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
        const photographerId = new URL(document.location).searchParams.get("id");
 
+    //  méthode globale fetch() récupérer des données des photographes à travers le fichier.json de manière asynchrone.
+
        fetch("../../data/photographers.json").then((response)=>{
 
              return response.json();
@@ -20,14 +22,26 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
             displayPhotographerInfo(photographerInfoArray[0]);
 
-            displayPhotographerMedia(photographerMediasArray);
+            displayPhotographerMedia(photographerMediasArray); 
+
+            // La portée de la constante photographerMediasArray étant limitée, 
+            // je place mon écouteur d'événement ici pour ne pas multiplier les lignes de codes.
+
+            // Mise en place d'écouteur d'événement pour TRIER en utilisant CHANGE et EVENT en paramètre.
+            // A chaque changement de selection,il y a récupération de la valeur CHANGE (donc soit popularité, date, ou titre).
 
             document.addEventListener("change", (event)=>{
 
+            // 1er test:  [console.log (event.target.value)]pour vérifier la récupération des valeurs de CHANGE (date, titre, popularité); si ok 
+            // J'appelle le fct displayPhotographerMedia.
+            // et je lui met en paramètre une nouvelle fct filterMedias que j'ai créé ds le dossier utils,pour plus de lisibilité.
+            // je lui mets comme paramètres les mêmes que ds le console.log et j'ajoute en paramètre le tableau des médias 
+            // = affichage du tableau des médias selon le TRIE de la valeur de CHANGE.
+          
                 displayPhotographerMedia(filterMedias(event.target.value, photographerMediasArray));
     
             });
-
+        // methode cath pour capturer les erreurs 
        }).catch((error)=>{
 
             console.log(error)
@@ -44,9 +58,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
               });
 
        }
-
+// ---Affichage des info du photographe avec comme paramètre (photographerInfos).
        function displayPhotographerInfo(photographerInfos){
-
+            // création d'une constante qui va créer du code comme en html mais en remplacant les données variables par les cléfs correspondantes à l'objet de la page.
              const photographerHTML = `
              
                     <div class="box">
