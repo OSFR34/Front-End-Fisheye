@@ -1,12 +1,12 @@
 #lightbox{
-    position:absolute;
+    position:fixed;
     left:0;
     right:0;
     top:0;
     bottom:0;
     background:#ffffff;
     z-index:9999;
-    display: flex;
+    display: none;
     flex-direction: row;
 }
 
@@ -19,14 +19,14 @@
     
 }
 
-.image-media-lightbox {
-    width: 40rem;
-    height: 40rem;
+#lightbox-media img, #lightbox-media video {
+    width: 40rem !important;
+    height: 40rem !important;
     margin: 15vh auto;
     align-items: center;
 }
 
-.description-image-ligntbox {
+.title-image-lightbox {
     margin: -8.5rem auto;
     color: #901C1C;
     font-weight: bold;

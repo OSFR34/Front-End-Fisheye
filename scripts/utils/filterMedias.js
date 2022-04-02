@@ -1,24 +1,24 @@
 // filter des médias par la valeur de la sélection du tableau des médias.
-function filterMedias(valueOfSelect, arrayMedias){
+function filterMedias(valueOfSelect, arrayToFilter){
     //  console.log (valueOfSelect);
-    //  console.log (arrayMedias); test avant de continuer
+    //  console.log (arrayToFilter); test avant de continuer
     
     // reprise du pattern factory comme dans mediaFactory.js
 
     if(valueOfSelect === "date"){
 
-        return filterByDate(arrayMedias);
+        return filterByDate(arrayToFilter);
     }
 
     if(valueOfSelect === "popularity"){
 
-       return filterByPopularity(arrayMedias);
+       return filterByPopularity(arrayToFilter);
 
     }
 
     if(valueOfSelect === "title"){
 
-       return filterByTitle(arrayMedias);
+       return filterByTitle(arrayToFilter);
 
     }
 

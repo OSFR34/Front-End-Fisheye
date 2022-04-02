@@ -129,6 +129,18 @@ document.addEventListener("DOMContentLoaded", ()=>{
              });
             //  injection dans le dom du résultat de htmlMedias, au niveau de l'id gallery.
              document.querySelector("#gallery").innerHTML = htmlMedias;
+
+             const medias = document.querySelectorAll(".article-media");
+
+             medias.forEach((media, index)=>{
+
+                  media.addEventListener("click", ()=>{
+
+                        lightBox(arrayMedias, index);
+
+                  });
+
+             });
        }
 
 

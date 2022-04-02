@@ -1,61 +1,93 @@
-const lightbox = document.querySelector("#lightbox_media");
-const lightboxMedia = document.querySelector(".lightbox_media__content");
-const closeMediaBtn = document.querySelector("#close-lightbox_media");
+function openLightbox(){
 
-function openLightbox(id) {
-  setMediaLightbox(id);
-  lightbox.style.display = "block";
-  closeMediaBtn.focus();
+     return document.querySelector("#lightbox").style.display = "flex";
+
 }
 
-function closeLightbox() {
-  lightbox.style.display = "none";
-  lightboxMedia.innerHTML = "";
+function closeLightbox(){
+
+    return document.querySelector("#lightbox").style.display = "none";
+
 }
 
-// Mettre l'image dans la lightbox
-function setMediaLightbox(id) {
-  const media = document.querySelector(`[data-id='${id}']`);
-  const mediaClone = media.cloneNode();
-  if (media.nodeName == "VIDEO") {
-    mediaClone.setAttribute("controls", true);
-  }
-  lightboxMedia.innerHTML = "";
-  mediaClone.setAttribute("tabindex", "0");
+function lightBox(arrayOfMedias, indexMediaToDisplay){
 
-  lightboxMedia.appendChild(mediaClone);
-  mediaClone.focus();
-}
+      const lightBoxContainer = document.querySelector("#lightbox-media");
 
-// Recherche quelle media afficher
-function changeMediaLightBox(index) {
-  let indexListMedia = listMediaId.findIndex(
-    (id) => id == lightboxMedia.firstChild.dataset.id
-  );
-  if (indexListMedia + index < 0) {
-    indexListMedia = listMediaId.length - 1;
-  } else if (indexListMedia + index == listMediaId.length) {
-    indexListMedia = 0;
-  } else {
-    indexListMedia += index;
-  }
-  setMediaLightbox(listMediaId[indexListMedia]);
-}
+     const firstMediaToDisplay = arrayOfMedias[indexMediaToDisplay];
 
-//Changer de média avec les touches fléches du clavier
-document.addEventListener("keydown", (event) => {
-  if (lightbox.style.display == "block") {
-    if (event.key == "ArrowLeft") {
-      changeMediaLightBox(-1);
-    } else if (event.key == "ArrowRight") {
-      changeMediaLightBox(1);
+     openLightbox();
+
+     displayMediaInLightbox(firstMediaToDisplay);
+
+
+     const arrows = document.querySelectorAll(".arrows");
+
+     arrows.forEach((arrow)=>{
+
+          arrow.addEventListener("click", ()=>{
+
+                 const textToSearch = document.querySelector(".title-image-lightbox").textContent;
+
+                 const actualIndex = arrayOfMedias.findIndex((media)=>{
+
+                    return media.title === textToSearch;
+
+                  });
+
+                if(arrow.classList.contains("right-arrow") === true){
+                      
+                       if(actualIndex < arrayOfMedias.length - 1){
+
+                           return displayMediaInLightbox(arrayOfMedias[actualIndex + 1]);
+
+                       }
+
+                       return false;
+
+                }
+
+                if(arrow.classList.contains("left-arrow") === true){
+
+
+                      if(actualIndex > 0){
+
+                            return displayMediaInLightbox(arrayOfMedias[actualIndex - 1]);
+
+                      }
+
+                      return false;
+
+                }
+
+          });
+
+     })
+     
+
+    function displayMediaInLightbox(mediaToDisplay){
+
+
+      const mediaHTML = `
+     
+        ${mediaFactory(mediaToDisplay)}
+
+        <div class="title-image-lightbox">${mediaToDisplay.title}</div>
+ 
+      `;
+
+      lightBoxContainer.innerHTML = mediaHTML;
+
+      if(mediaToDisplay.video !== undefined){
+
+             const lightBox = document.querySelector("#lightbox");
+        
+             lightBox.querySelector(".video-media").setAttribute("controls", true);
+
+      }
+
+      return false;
+
     }
-  }
-});
 
-setFocusOnlyInContainer(
-  "#lightbox_media",
-  "#close-lightbox_media",
-  ".link-next-media",
-  closeLightbox
-);
+}
