@@ -1,5 +1,5 @@
 @import url("photographer.css");
-
+@import url("lightbox.css");
 * {
     box-sizing: border-box;
     list-style: none;
@@ -19,11 +19,13 @@ body {
 
 header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    .closeSuccesMessage */
+    flex-direction: column ;
+    justify-content:start;
+}
+.closeSuccesMessage {
     height: 120px;
 }
+
 
 h1 {
     color: #901C1C;
@@ -31,11 +33,13 @@ h1 {
 }
 h2 {
     margin-top: 25px;
+
 }
 
 .logo {
     height: 50px;
     margin-left: 110px;
+   max-width: 150px;
 }
 
 .photographer_section {

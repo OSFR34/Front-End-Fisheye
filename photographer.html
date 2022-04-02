@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/select.css" rel="stylesheet" type="text/css" />
     <title>My- Fisheye - photographe </title>
   </head>
   <body>
@@ -17,13 +18,17 @@
         <div class="photographer-header"></div>
          <!-- FORM -->
         <div id="background_modal">
-          <div class="modal" id="modalGlobale">
+          <div class="modal" id="modalGlobale" aria-label="formulaire de contact">
             <span class="close"></span> 
-            <div class="modal-body"></div> 
-
+            <div class="modal-body"></div>
             <header>
-              <h2 id="message_header_modal"></h2>
-              <img src="assets/icons/close.svg" alt="fermer la modale" onclick="closeModal()" />
+              <div class="headerModal">
+                <div>
+                  <h2 aria-label="Contactez-moi">Contactez-moi</h2>
+                  <p class="namePhotographer" id="namePhotographer"></p>
+                </div>
+                <img src="assets/icons/close.svg" alt="fermeture du formulaire de contact" onclick="closeModal()" /
+              </div>
             </header>
 
             <form id="form" name="message" action="index.html" method="get">
@@ -34,7 +39,7 @@
               </div>
               <div class="formData">
                 <label for="last">Nom</label>
-                <input type="text" id="last" onfocusout="verifLastName()"></>
+                <input type="text" id="last" onfocusout="verifLastName()" />
                 <p class="errorText">Veuillez entrer un nom de 2 caractères ou plus.</p>
               </div>
               <div class="formData">
@@ -47,7 +52,7 @@
                 <textarea class="boxTextarea" id="message-boxTextarea" type="text" onfocusout="verifMessage()"></textarea>
                 <p class="errorText">Veuillez saisir 15 caractères ou plus.</p>
               </div>
-              <button class="btn-submit ">Envoyer</button>
+              <button class="btn-submit" aria-label="envoyer le formulaire de contact">Envoyer</button>
               
             </form>
           </div>
@@ -60,12 +65,58 @@
           <option class="item2-menu-burger" value="date">Date</option>
           <option class="item3-menu-burger" value="title">Titre</option>
         </select>        
+        <!-- <span class="menu-burger-gallery">Trier par
+          <button id="select-first-option" class="select-option">
+            <span id="select-first-option-text">Popularité</span>
+          </button>
+          <div id="select-block-options">
+            <button  class="select-option">Date</button>
+            <button  class="select-option">Titre</button>
+          </div>
+        </span>  -->
         
         <!-- SECTION PHOTOS -->
-        <div id="gallery">       
-        
-        </div>
+        <section>
+          <div id="gallery">       
+          
+          </div>
         </section>
+
+        <!-- ENCART TOTAL LIKE ET PRIX/JOUR -->
+        <div class="photographer-info">
+          <div>
+            <p id="photographer-all-likes">100</p>
+            <img src="./assets/icons/heart.svg" alt="coeur" />
+          </div>
+          <p id="photographer-price-day">400$ / jour</p>
+        </div>
+
+        <!-- LIGHTBOX -->
+
+        <div id="lightbox_media">
+          <button
+            id="close-lightbox_media"
+            style="background: url(assets/icons/close.svg)"
+            onclick="closeLightbox()"
+            aria-label="Fermer lightbox"
+          ></button>
+          <div class="lightbox_media__content"></div>
+          <a
+            href="#"
+            aria-label="Image précédente"
+            class="link-previous-media"
+            onclick="changeMediaLightBox(-1)"
+          >
+            <img src="./assets/icons/arrow_icon.svg" alt="arrow icon" />
+          </a>
+          <a
+            href="#"
+            aria-label="Image suivante"
+            class="link-next-media"
+            onclick="changeMediaLightBox(1)"
+          >
+            <img src="./assets/icons/arrow_icon.svg" alt="arrow icon" />
+          </a>
 
         
       </main>
@@ -83,6 +134,8 @@
       <script src="/scripts/utils/mediaFactory.js"></script>
 
       <script src="scripts/utils/filterMedias.js"></script> 
+
+      <script src="/scripts/utils/lightbox.js"></script>
     </div>
   </body>
 </html>

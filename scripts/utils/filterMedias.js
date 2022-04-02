@@ -22,7 +22,7 @@ function filterMedias(valueOfSelect, arrayMedias){
 
     }
 
-    // Retour un tableau trier par date par ordre décroissante
+    // Retourne un tableau trier par date par ordre décroissante
     function filterByDate(arrayOfMedias){
 
         return arrayOfMedias.sort((a, b)=>{

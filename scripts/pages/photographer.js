@@ -1,3 +1,4 @@
+// L’évènement DOMContentLoaded est émis lorsque le document HTML initial a été complètement chargé et analysé, sans attendre que les feuilles de style, images et sous-documents aient terminé de charger.
 document.addEventListener("DOMContentLoaded", ()=>{
 
        // On recupere l'id du photographe situee dans l'url
@@ -5,6 +6,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
        const photographerId = new URL(document.location).searchParams.get("id");
 
     //  méthode globale fetch() récupérer des données des photographes à travers le fichier.json de manière asynchrone.
+
+    // entre parenthèses après fetch prend un argument qui contient le chemin de la ressource que ns souhaitons récupérer ensuite (=traduit de .then) response de l'API fetch représenre la réponse d'une requête initialisée
 
        fetch("../../data/photographers.json").then((response)=>{
 
@@ -90,6 +93,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
               //  injection dans le dom du résultat de photographerHTML, au niveau de la class photographer-header.
               document.querySelector(".photographer-header").innerHTML = photographerHTML;
+            //   affiche le nom du photographe dans le titre de la modale
+              document.querySelector("#namePhotographer").textContent = photographerInfos.name;
 
        }
 
@@ -104,11 +109,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
        }
 // Affichage de tous les médias par photographe avec comme paramètre le tableau des médias
        function displayPhotographerMedia(arrayMedias){
-
+                // création de la variable/ "" signifie 
               let htmlMedias = "";
-            // récupération de chaque médias ds le tableau des médias
+            // récupération de chaque média ds le tableau des médias
              arrayMedias.forEach((media)=>{
-                    // permet la concaténation de htmlMédia avec le contenu des bactiques.
+                    // htmlMediasnpermet la création du html/+= l'opérateur addition et égale permet la concaténation de la variable arrayMedias (qui récupére chaque média) AVEC le contenu des bactiques.(=étant ici l'assignation)
                   htmlMedias += `
                   
                     <div class="gallery-element">        
@@ -128,3 +133,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
 });
+
+//Mettre les informations pour la section en bas à droite
+function setSectionInfo(photographer, media, afterLikeEvent = false) {
+    if (afterLikeEvent) {
+      document.getElementById("photographer-all-likes").innerText = allLikes;
+    } else {
+      allLikes = 0;
+      media.forEach((element) => {
+        allLikes += element.likes;
+      });
+  
+      document.getElementById("photographer-all-likes").innerText = allLikes;
+      document.getElementById(
+        "photographer-price-day"
+      ).innerText = `${photographer.price}€ / jour`;
+    }
+  }
