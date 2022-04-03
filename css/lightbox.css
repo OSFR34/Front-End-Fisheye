@@ -27,9 +27,10 @@
 }
 
 .title-image-lightbox {
-    margin: -8.5rem auto;
+    margin: -7.8rem auto;
     color: #901C1C;
     font-weight: bold;
+    font-size: 1.25rem;
 }
 .close-lightbox {
     color: #901C1C !important;
