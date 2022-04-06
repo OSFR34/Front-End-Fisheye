@@ -59,21 +59,24 @@
         </div>
         
         <!-- MENU DEROULANT -->
-        <span class="menu-burger-gallery">Trier par</span>
-        <select name="photos">
-          <option class="item1-menu-burger" value="popularity">Popularité<i class="fal fa-caret-down"></i></option>
-          <option class="item2-menu-burger" value="date">Date</option>
-          <option class="item3-menu-burger" value="title">Titre</option>
-        </select>        
-        <!-- <span class="menu-burger-gallery">Trier par
-          <button id="select-first-option" class="select-option">
-            <span id="select-first-option-text">Popularité</span>
-          </button>
-          <div id="select-block-options">
-            <button  class="select-option">Date</button>
-            <button  class="select-option">Titre</button>
-          </div>
-        </span>  -->
+        <div id="flexRow"> 
+          <span for="filter" class="dropdown-span">Trier par</span>
+          <div class="flexColum">
+            <button id="select-first-option" class="select-option">
+        
+              <span id="select-first-option-text">Popularité</span>
+            </button>
+            <div id="select-block-options">
+                <div class="flexColumn">
+                  <button  class="select-option">Date  </button>
+                  <button  class="select-option">Titre  </button>
+                </div>
+            </div> 
+           </div>
+        
+           </div>
+
+        
         
         <!-- SECTION PHOTOS -->
         <section>
@@ -95,7 +98,7 @@
 
         <div id="lightbox">
           <div>
-            <img class="close-lightbox" src="./assets/icons/close.svg" alt="icone en croix pour la fermeture de lightbox" aria-label="Fermer lightbox">
+            <img class="close-lightbox" src="./assets/icons/close lightbox.svg" alt="icone en croix pour la fermeture de lightbox" aria-label="Fermer lightbox">
           </div>
           <img class="left-arrow arrows" src="./assets/icons/left-arrow.png" alt="chevron pour déclencher l'ouverture de image précédente"/>
           <div id="lightbox-media">  
@@ -121,7 +124,12 @@
 
   <script src="/scripts/utils/mediaFactory.js"></script>
 
-  <script src="scripts/utils/filterMedias.js"></script> 
+  <script src="scripts/utils/filterMedias.js"></script>  
+  
+  <script src="/scripts/utils/select.js"></script>
 
   <script src="/scripts/utils/lightbox.js"></script>
+
+
+
 </html>

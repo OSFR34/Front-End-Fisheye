@@ -44,12 +44,19 @@ function handleButtonsOptions(){
      optionsButtons.forEach((button)=>{
         
               button.onclick = ()=>{
+
+                // Récupération du contenu du bouton cliquer (textContent récupère le contenu de tous les éléments, y compris <script> et <style>)
               
                   const buttonText = button.textContent;
-                    
+
+                //   j'affecte le texte du button cliqué au premier bouton (remplacement du texte du premier bouton par celui qui est cliqué)
+                
                   button.innerHTML = firstButtonText.textContent;
                     
-                  firstButtonText.innerHTML = buttonText;         
+                //   j'affecte le texte du premier button par celui qui a été cliqué
+                  firstButtonText.innerHTML = buttonText;  
+                  
+                // je retourne la fct de fermeture de la liste déroulante.
                     
                   return closeSelect();
         

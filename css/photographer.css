@@ -36,7 +36,7 @@
 .modal {
     border-radius: 5px;
     background-color: #db8976de;
-    width: 420px;
+    width: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,9 +61,7 @@
     margin-top:0px;
     height: 1.1rem;
     margin-left: 185px;
-   
-
-   
+    color: white;   
 }
 
 .modal header h2, #namePhotographer {
@@ -151,7 +149,7 @@ form input, .boxTextarea {
     display: flex;
     justify-content: space-between;
     padding: 0px 20px;
-    border-radius: px 5px 0 0;
+    border-radius: 5px 5px 0px 0px;
     width: 300px;
   }
   
