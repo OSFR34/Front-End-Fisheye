@@ -10,7 +10,7 @@
     <title>My- Fisheye - photographe </title>
   </head>
   <body>
-    <div id="bloc-page">
+    <div id="bloc-page-photographer">
       <header>
         <img src="assets/images/logo.png" class="logo" />
       </header>
@@ -62,14 +62,14 @@
         <div id="flexRow"> 
           <span for="filter" class="dropdown-span">Trier par</span>
           <div class="flexColum">
-            <button id="select-first-option" class="select-option">
+            <button ul id="select-first-option" class="select-option" role="list">
         
-              <span id="select-first-option-text">Popularité</span>
+              <span li id="select-first-option-text">Popularité</span>
             </button>
             <div id="select-block-options">
                 <div class="flexColumn">
-                  <button  class="select-option">Date  </button>
-                  <button  class="select-option">Titre  </button>
+                  <button li  class="select-option">Date  </button>
+                  <button li class="select-option">Titre  </button>
                 </div>
             </div> 
            </div>
@@ -86,13 +86,22 @@
         </section>
 
         <!-- ENCART TOTAL LIKE ET PRIX/JOUR -->
-        <div class="photographer-info">
-          <div>
-            <p id="photographer-all-likes">100</p>
-            <img src="./assets/icons/heart.svg" alt="coeur" />
+        <section>
+          <div id="boxLikesPrice">
+            <div class="photographer-info">
+                <div>
+                    <p id="photographer-all-likes">143</p>
+                    <img src="./assets/icons/heart.svg" alt="coeur" />
+                </div>
+                <p id="photographer-price-day">400€ / jour</p>
+            </div>
+        
+    
+        `
+
           </div>
-          <p id="photographer-price-day">400$ / jour</p>
-        </div>
+        </section>
+        
 
         <!-- LIGHTBOX -->
 
@@ -110,6 +119,7 @@
         </div>
         
       </main>
+    </div>
 
   </body>
   <script src="/scripts/utils/modal.js"></script>
@@ -129,6 +139,8 @@
   <script src="/scripts/utils/select.js"></script>
 
   <script src="/scripts/utils/lightbox.js"></script>
+
+  <script src="/scripts/utils/likes.js"></script>
 
 
 

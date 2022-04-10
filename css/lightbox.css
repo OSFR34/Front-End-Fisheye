@@ -11,12 +11,15 @@
 }
 
 .right-arrow, .left-arrow{
-    width: 100px;
-    height: 100px;
+    width: 65px;
+    height: 65px;
     margin: 45vh auto;
     align-items: center;
-    color:#901C1C !important;
-    
+    color:#901C1C !important;    
+}
+
+.right-arrow {
+    transform: rotate(180deg);
 }
 
 #lightbox-media img, #lightbox-media video {

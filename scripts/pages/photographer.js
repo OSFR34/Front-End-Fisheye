@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
             displayPhotographerMedia(photographerMediasArray); 
 
+// ---------SELECT ECOUTEUR D'EVENEMENT--------------------------
             // La portée de la constante photographerMediasArray étant limitée, 
             // je place mon écouteur d'événement ici pour ne pas multiplier les lignes de codes.
 
@@ -109,7 +110,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
        }
 // Affichage de tous les médias par photographe avec comme paramètre le tableau des médias
        function displayPhotographerMedia(arrayMedias){
-                // création de la variable/ "" signifie 
+                // création de la variable/ "" signifie chaine de caractères.
               let htmlMedias = "";
             // récupération de chaque média ds le tableau des médias
              arrayMedias.forEach((media)=>{
@@ -120,7 +121,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         ${mediaFactory(media)}
                         <div class="description-element">
                         <span class="picture-name">${media.title}</span>
-                        <span class="likes-area">${media.likes}<i class="far fa-heart"></i></span>
+        
+                        <span class="likes-area"><span class="likes-number">${media.likes}</span><i class="far fa-heart"></i></span>
                     </div>        
                     </div>
                   
@@ -130,24 +132,36 @@ document.addEventListener("DOMContentLoaded", ()=>{
             //  injection dans le dom du résultat de htmlMedias, au niveau de l'id gallery.
              document.querySelector("#gallery").innerHTML = htmlMedias;
 
+    //------------------AJOUTS POUR CREER LA LIGHTBOX------------------------------//
              const medias = document.querySelectorAll(".article-media");
 
+            // La méthode forEach() permet d'exécuter une fonction donnée sur chaque élément du tableau.
+            //  pour chaque média avec comme paramètres ( média (prend on compte l'élément courant) et en deuxième paramètre la méthode index (index commence tj par 0)
+            // création d'une callback = Une fonction de rappel (appelée callback en anglais) est une fonction passée dans une autre fonction en tant qu'argument, qui est ensuite invoquée à l'intérieur de la fonction externe pour accomplir une sorte de routine ou d'action.
              medias.forEach((media, index)=>{
 
                   media.addEventListener("click", ()=>{
 
+                    // verification avt de passer à la suite: 
+                    // alert(index) résultat on doit retrouver 0 qd on clique sur la première image. 
+
+                    //j'appelle la fct  lightBox et lui précisant les vrais valeurs de ces paramètres (1er argument qui est une variable=arrayMedias crée plus haut, et le paramètre index qui est une méthode)
+
                         lightBox(arrayMedias, index);
+                        // puis je retourne ds la page lightbox pour une vérification avec un console.log 
 
                   });
 
              });
+
+             likes();
        }
 
 
 });
 
 //Mettre les informations pour la section en bas à droite
-function setSectionInfo(photographer, media, afterLikeEvent = false) {
+function LikesPrice(photographer, media, afterLikeEvent = false) {
     if (afterLikeEvent) {
       document.getElementById("photographer-all-likes").innerText = allLikes;
     } else {
@@ -162,3 +176,5 @@ function setSectionInfo(photographer, media, afterLikeEvent = false) {
       ).innerText = `${photographer.price}€ / jour`;
     }
   }
+
+

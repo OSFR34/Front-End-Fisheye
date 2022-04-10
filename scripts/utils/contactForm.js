@@ -89,6 +89,7 @@ function verifMessage() {
 
 // Ecouteur d'évènement et validation
 document.querySelector(".btn-submit").addEventListener("click", function(event){
+    // la méthode preventDefault permets l'annulation des dispositions par défaut.
 
     event.preventDefault();
 
@@ -129,7 +130,7 @@ document.querySelector(".btn-submit").addEventListener("click", function(event){
         </div> 
     
         <div id="success-message"> Votre message a bien été transmis.<br><br>
-        Vous serez reconctacter dans les plus brefs délais.</div>
+        Nous vous recontacterons sous 48 heures.</div>
 
         <button class="btn" id="closeSuccessMessage">Fermer</button>   
     

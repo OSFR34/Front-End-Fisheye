@@ -1,5 +1,6 @@
 @import url("photographer.css");
 @import url("lightbox.css");
+@import url("likes.css");
 * {
     box-sizing: border-box;
     list-style: none;
@@ -12,10 +13,13 @@ body {
     font-family: "DM Sans", "sans-serif";
 }
 #bloc-page {
-    max-width: 1400px;
+    max-width: 1600px;
     margin: auto;
 }
-
+#bloc-page-photographer {
+    max-width: 1600px;
+    margin: auto;
+}
 
 header {
     display: flex;
@@ -84,7 +88,7 @@ h2 {
 .photographer_price {
     font-size: 1.05rem;
     font-weight: 510;
-    color: rgba(163, 163, 163,0.9);
+    color: rgb(104, 102, 102);
 }
 /* PHOTOGRAPHER.HTML */
 /* header */
@@ -94,11 +98,11 @@ h2 {
     flex-direction: row; 
     justify-content: space-between;
     align-items: center;  
-    margin: 50px 110px 50px 110px;
+    margin: 50px 100px 50px 100px;
     background-color: rgba(128, 128, 128, 0.061);
     padding: 20px 50px 20px 50px;
-    border-radius: 5px;
-    box-shadow: rgb(82 82 82 / 55%) 0px 2px 16px -6px;
+    border-radius: 10px;
+    /* box-shadow: rgb(82 82 82 / 55%) 0px 2px 16px -6px; */
     /* border: solid green 2px; */
 }
 .box {
@@ -197,7 +201,8 @@ border-radius: 5px 5px 0px 0px;
     flex-wrap:wrap;
     justify-content: center;
     padding:60px; 
-    gap:70px; 
+    gap:85px; 
+    /* z-index:0; */
    
 }
 .gallery-element{   
@@ -207,10 +212,10 @@ border-radius: 5px 5px 0px 0px;
   
 }
 .article-media{ 
-     width:350px;
+     width:390px;
      display:inline-block;
      object-fit:cover;
-     height: 300px; 
+     height: 350px; 
      border-radius: 5px;  
      box-shadow: rgb(82, 82, 82) 0px 2px 16px -6px;
 }

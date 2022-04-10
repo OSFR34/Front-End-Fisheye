@@ -6,7 +6,7 @@
 #flexRow {
 display:flex;
 flex-direction: row;
-/* align-items: center; */
+
 }
 .flexColumn {
 display: flex;
@@ -14,7 +14,7 @@ flex-direction: column;
 
 }
 .dropdown-span {
-margin: 15px 15px 15px 110px;
+margin: 15px 15px 15px 100px;
 
 }
 
@@ -34,7 +34,6 @@ margin: 15px 15px 15px 110px;
 
 .select-option{
   width:120px;
-  border:none;
   background:#911C1C;
   color:#ffffff;
   position:relative;
@@ -42,8 +41,8 @@ margin: 15px 15px 15px 110px;
   border:1px solid #ffffff;
   cursor:pointer;
   height:50px;
-  border-radius: 5px;
- 
+  border-radius: 5px; 
+  z-index: ;
 
 }
 
@@ -52,6 +51,111 @@ margin: 15px 15px 15px 110px;
   display:none;
 
 }
+
+/* ESSAI THOMAS */
+#sort-medias {
+  position: relative;
+  display: flex; 
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+#sort-medias p {
+  padding: 15px 10px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
+#sort-by {
+  font-weight: bold;
+}
+
+#button-sort {
+  background-color: #901C1C;
+  color : white;
+  font-family: "Dm Sans",sans-serif;
+  border: none;
+  border-radius: 3px;
+  width: 140px;
+  text-align: left;
+  padding: 10px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#button-sort::after {
+  content: "";
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg) translate3d(-25%, -25%, 0);
+  position: absolute;
+  top: 21px;
+  left: 206px;
+}
+
+.fa-chevron-down {
+  margin-right: 10px;
+}
+
+.fa-chevron-up {
+  margin-left: 16px;
+}
+
+#bloc-sort {
+  border: none;
+  padding: 0px;
+  border-radius: 3px;
+  position: absolute;
+  top: -16px;
+  left: 89px;
+  background-color: #901C1C;
+  color: white;
+  width: 120px;
+  display: none;
+  padding: 5px 10px;
+  z-index: 1;
+}
+
+#bloc-sort li {
+  list-style-type: none; 
+  padding: 10px 0px;
+  cursor: pointer;
+}
+
+#bloc-sort li button {
+  font-family: "Dm Sans",sans-serif;
+  font-size: 1em;
+  border: none;
+  background-color: transparent;
+  color: white;
+  padding: 0px;
+  cursor: pointer;
+}
+
+#popularity {
+  display: flex;
+  justify-content: space-between;
+}
+
+#popularity::after {
+  content: "";
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(225deg) translate3d(-25%, -25%, 0);
+  position: absolute;
+  top: 18px;
+  left: 117px;
+}
+
+#date {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
 
 
 

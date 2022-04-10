@@ -126,41 +126,23 @@ form input, .boxTextarea {
     align-items: center;
     text-align: center;
     font-weight: bold;
-    font-size: 1.1rem;;
-    color:black !important;
+    font-size: 1.1rem;
+    color: black !important;
     filter: brightness(50);
     line-height: 2rem;
+    margin: 8rem 1rem 5rem 1rem
     
 }
 #crossSuccessMessage {
-    margin-top: 18px;
     margin-left: 95%;
     
 }
+#crossSuccessMessage img{
+    width: 20px;
+    height: 20px;
+}
 
-/* ENCART TOTAL LIKES */
 
-.photographer-info {
-    position: fixed;
-    bottom: 0;
-    right: 40px;
-    background-color: #db8876;
-    color: black;
-    display: flex;
-    justify-content: space-between;
-    padding: 0px 20px;
-    border-radius: 5px 5px 0px 0px;
-    width: 300px;
-  }
-  
-  .photographer-info img {
-    filter: brightness(0%);
-  }
-  
-  .photographer-info div {
-    display: flex;
-    gap: 4px;
-  }
 
 
 
