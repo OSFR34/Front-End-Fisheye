@@ -1,14 +1,23 @@
-function displayTotalLikesPrice(likesMedias){
+function displayTotalLikesPrice(mediasOfArray,likesOfMedias){
+
+    const 
 
  
 
     const icons = document.querySelectorAll(".fa-heart");
+    
+        let htmlLikesPrice = "";
+        
+        icons.forEach((icon)=>{
 
-    icons.forEach((icon)=>{
+        let htmlLikesPrice = "";
 
              icon.addEventListener("click", ()=>{
 
-                    const actuelLikes = document.querySelector("") 
+                    const actuelNumberLikes = document.querySelector(".likes-number")
+                    
+                        return number (number(actuelNumberLikes) + 1)
+
                     
 
              });
