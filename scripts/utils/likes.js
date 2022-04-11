@@ -1,22 +1,39 @@
 function displayTotalLikesPrice(mediasOfArray,likesOfMedias){
 
-    const 
+   
 
  
+function clickedHeart (medias, likes, price) {
+
+    const actuelNumberLikes = document.querySelector(".likes-number")
+
+    return number ((actuelNumberLikes) + 1)
+
+}
+
+
+
+function unclickHeart () {
+
+    const actuelNumberLikes = document.querySelector(".likes-number")
+
+    return number ((actuelNumberLikes) - 1)
+
+}
+
+
 
     const icons = document.querySelectorAll(".fa-heart");
-    
-        let htmlLikesPrice = "";
         
-        icons.forEach((icon)=>{
-
-        let htmlLikesPrice = "";
+        icons.forEach((icon, number)=>{
 
              icon.addEventListener("click", ()=>{
 
-                    const actuelNumberLikes = document.querySelector(".likes-number")
+                    if  
                     
-                        return number (number(actuelNumberLikes) + 1)
+                        
+
+                        return clickedHeart
 
                     
 

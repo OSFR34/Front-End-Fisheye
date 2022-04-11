@@ -123,6 +123,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         <span class="picture-name">${media.title}</span>
         
                         <span class="likes-area"><span class="likes-number">${media.likes}</span><i class="far fa-heart"></i></span>
+                        <span id="likes-area-empty"><i class="fas fa-heart"></i></span>
                     </div>        
                     </div>
                   
