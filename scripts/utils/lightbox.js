@@ -36,12 +36,12 @@ function lightBox(arrayOfMedias, indexMediaToDisplay){
 
      displayMediaInLightbox(firstMediaToDisplay);
 
-
+// 11-initialisation constante contenant la nouvelle classe .arrows
      const arrows = document.querySelectorAll(".arrows");
+ 
+     arrows.forEach((arrow)=>{ /*12-pour chaque flèche */
 
-     arrows.forEach((arrow)=>{
-
-          arrow.addEventListener("click", ()=>{
+          arrow.addEventListener("click", ()=>{ /*13-placement d'un écouteur d'événement au click pour chaque flèque */
 
                  const textToSearch = document.querySelector(".title-image-lightbox").textContent;
 
@@ -51,11 +51,16 @@ function lightBox(arrayOfMedias, indexMediaToDisplay){
 
                   });
 
+  /*14- L'API classList permet d'accéder à la liste des classes appliquées à un élément HTML, de manière simple et efficace via les méthodes suivantes : 
+  length : retourne le nombre de classes
+contains(nom_classe) : vérifie si la classe spécifiée ici("right-arrow") est appliquée, ici s' il c'est cliqué, c'est-à-dire true. */
+
                 if(arrow.classList.contains("right-arrow") === true){
 
-                        // si l'index actuel est inférieur à la longuer du tableau des médias ( les index commencent tj par 0 et length (indique le nombre d'éléments présents dans le tableaux) commence par 1 d'où le -1 pour retrouver le même nombre)
+                        // 15-si l'index actuel est inférieur à la longuer du tableau des médias ( les index commencent tj par 0 et length (indique le nombre d'éléments présents dans le tableaux) commence par 1 d'où le -1 pour retrouver le même nombre)
                       
                        if(actualIndex < arrayOfMedias.length - 1){
+                        //  affiche le média dont l'index est plus 1
 
                            return displayMediaInLightbox(arrayOfMedias[actualIndex + 1]);
 
@@ -98,7 +103,9 @@ function lightBox(arrayOfMedias, indexMediaToDisplay){
         <div class="title-image-lightbox">${mediaToDisplay.title}</div>
  
       `;
-// 10- j'injecte la constante mediaHTML ds le html àl'emplacement du lightBoxContainer.
+// 10- J'injecte la constante mediaHTML ds le html à l'emplacement du lightBoxContainer.
+// La propriété Element.innerHTML de Element récupère ou définit la syntaxe HTML décrivant les descendants de l'élément.
+// puis ds le html je rajoute la class arrows pour les ciblés
       lightBoxContainer.innerHTML = mediaHTML;
 
       if(mediaToDisplay.video !== undefined){
