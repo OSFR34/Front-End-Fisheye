@@ -19,6 +19,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
             const photographersMedias = result.media;
 
+            let isOpen = false;
+
+            const selectOptions = document.querySelector("#select-block-options");
+            
+            const firstButtonText = document.querySelector("#select-first-option-text");
+            
+            const optionsButtons = selectOptions.querySelectorAll("button");
+
             const photographerInfoArray = getPhotographerInfo(photographersInfo, photographerId);
 
             const photographerMediasArray = getPhotographerMedias(photographersMedias, photographerId);
@@ -27,24 +35,89 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
             displayPhotographerMedia(photographerMediasArray); 
 
+
 // ---------SELECT ECOUTEUR D'EVENEMENT--------------------------
+
+            document.querySelector("#select-first-option").addEventListener("click", ()=>{
+              if(isOpen === false){
+              
+                  // On ouvre le faux select
+                  
+                  selectOptions.style.display = "block";
+                  
+                  isOpen = true;
+                  
+                  return handleButtonsOptions();
+              
+              }
+              
+              if(isOpen === true){
+              
+                  return closeSelect();
+              
+              }
+
+            });
+
+            function closeSelect(){
+     
+              // On ferme le faux select
+                      
+              selectOptions.style.display = "none";
+              
+               return isOpen = false;
+                      
+         
+            }
+
+            function handleButtonsOptions(){
+     
+              optionsButtons.forEach((button)=>{
+                 
+                       button.onclick = ()=>{
+         
+                         // Récupération du contenu du bouton cliquer (textContent récupère le contenu de tous les éléments, y compris <script> et <style>)
+                       
+                           const buttonText = button.textContent;
+         
+                         //   j'affecte le texte du button cliqué au premier bouton (remplacement du texte du premier bouton par celui qui est cliqué)
+                         
+                           button.innerHTML = firstButtonText.textContent;
+                             
+                         //   j'affecte le texte du premier button par celui qui a été cliqué
+                           firstButtonText.innerHTML = buttonText;  
+                           
+                         // je retourne la fct de fermeture de la liste déroulante.
+    
+                          displayPhotographerMedia(filterMedias(buttonText, photographerMediasArray));
+                             
+                          return closeSelect();
+                 
+                       };
+                 
+                 });
+         
+         
+            }
             // La portée de la constante photographerMediasArray étant limitée, 
             // je place mon écouteur d'événement ici pour ne pas multiplier les lignes de codes.
 
             // Mise en place d'écouteur d'événement pour TRIER en utilisant CHANGE et EVENT en paramètre.
             // A chaque changement de selection,il y a récupération de la valeur CHANGE (donc soit popularité, date, ou titre).
 
-            document.addEventListener("change", (event)=>{
+            // document.querySelector()addEventListener("change", (event)=>{
 
-            // 1er test:  [console.log (event.target.value)]pour vérifier la récupération des valeurs de CHANGE (date, titre, popularité); si ok 
-            // J'appelle le fct displayPhotographerMedia.
-            // et je lui met en paramètre une nouvelle fct filterMedias que j'ai créé ds le dossier utils,pour plus de lisibilité.
-            // je lui mets comme paramètres les mêmes que ds le console.log et j'ajoute en paramètre le tableau des médias 
-            // = affichage du tableau des médias selon le TRIE de la valeur de CHANGE.
+            // // 1er test:  [console.log (event.target.value)]pour vérifier la récupération des valeurs de CHANGE (date, titre, popularité); si ok 
+            // // J'appelle le fct displayPhotographerMedia.
+            // // et je lui met en paramètre une nouvelle fct filterMedias que j'ai créé ds le dossier utils,pour plus de lisibilité.
+            // // je lui mets comme paramètres les mêmes que ds le console.log et j'ajoute en paramètre le tableau des médias 
+            // // = affichage du tableau des médias selon le TRIE de la valeur de CHANGE.
           
-                displayPhotographerMedia(filterMedias(event.target.value, photographerMediasArray));
+            //     displayPhotographerMedia(filterMedias(event.target.value, photographerMediasArray));
     
-            });
+            // });
+
+            
         // methode cath pour capturer les erreurs 
        }).catch((error)=>{
 
@@ -96,6 +169,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
               document.querySelector(".photographer-header").innerHTML = photographerHTML;
             //   affiche le nom du photographe dans le titre de la modale
               document.querySelector("#namePhotographer").textContent = photographerInfos.name;
+
+              document.querySelector("#photographer-price-day").textContent = `${photographerInfos.price}$ / Jour`;
 
        }
 
@@ -155,27 +230,21 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
              });
 
+             let totalNumberOfLikes = 0;
+
+             for(let i=0; i<arrayMedias.length; i++){
+        
+                  totalNumberOfLikes+= Number(arrayMedias[i].likes);
+
+             }
+
+             document.querySelector("#photographer-all-likes").textContent = totalNumberOfLikes;
+
              likes();
        }
 
 
 });
 
-//Mettre les informations pour la section en bas à droite
-function LikesPrice(photographer, media, afterLikeEvent = false) {
-    if (afterLikeEvent) {
-      document.getElementById("photographer-all-likes").innerText = allLikes;
-    } else {
-      allLikes = 0;
-      media.forEach((element) => {
-        allLikes += element.likes;
-      });
-  
-      document.getElementById("photographer-all-likes").innerText = allLikes;
-      document.getElementById(
-        "photographer-price-day"
-      ).innerText = `${photographer.price}€ / jour`;
-    }
-  }
 
 

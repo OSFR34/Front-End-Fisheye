@@ -1,47 +1,21 @@
-function displayTotalLikesPrice(mediasOfArray,likesOfMedias){
+function likes(){
 
-   
+     const hearts = document.querySelectorAll(".fa-heart");
 
- 
-function clickedHeart (medias, likes, price) {
+     let totalNumberOfLikes = document.querySelector("#photographer-all-likes");
 
-    const actuelNumberLikes = document.querySelector(".likes-number")
+     hearts.forEach((heart)=>{
 
-    return number ((actuelNumberLikes) + 1)
+            heart.addEventListener("click", function(){
 
-}
+                  const numberOfLikes = heart.previousSibling;
 
+                  numberOfLikes.textContent = Number(numberOfLikes.textContent) + 1;
 
+                  totalNumberOfLikes.textContent = Number(totalNumberOfLikes.textContent) + 1;
 
-function unclickHeart () {
+            });
 
-    const actuelNumberLikes = document.querySelector(".likes-number")
-
-    return number ((actuelNumberLikes) - 1)
-
-}
-
-
-
-    const icons = document.querySelectorAll(".fa-heart");
-        
-        icons.forEach((icon, number)=>{
-
-             icon.addEventListener("click", ()=>{
-
-                    if  
-                    
-                        
-
-                        return clickedHeart
-
-                    
-
-             });
-
-
-    });
+     })
 
 }
-
-Number(text)

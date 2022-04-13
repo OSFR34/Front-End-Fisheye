@@ -5,18 +5,18 @@ function filterMedias(valueOfSelect, arrayToFilter){
     
     // reprise du pattern factory comme dans mediaFactory.js
 
-    if(valueOfSelect === "date"){
+    if(valueOfSelect === "Date"){
 
         return filterByDate(arrayToFilter);
     }
 
-    if(valueOfSelect === "popularity"){
+    if(valueOfSelect === "Popularité"){
 
        return filterByPopularity(arrayToFilter);
 
     }
 
-    if(valueOfSelect === "title"){
+    if(valueOfSelect === "Titre"){
 
        return filterByTitle(arrayToFilter);
 
