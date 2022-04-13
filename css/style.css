@@ -41,9 +41,10 @@ h2 {
 }
 
 .logo {
-    height: 50px;
+    height: 55px;
     margin-left: 110px;
    max-width: 150px;
+   padding: 10px;
 }
 
 .photographer_section {
