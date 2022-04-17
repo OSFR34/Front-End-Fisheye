@@ -75,7 +75,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
       // création d'une constante qui va créer du code comme en html mais en remplacant les données variables par les cléfs correspondantes à l'objet de la page.
             const photographerHTML = `             
                     <div class="box">
-                        <h2>${photographerInfos.name}</h2>
+                        <h2>
+                        ${photographerInfos.name}
+                        </h2>
                         <p class="photographer_city_country">
                           <span>${photographerInfos.country}</span>
                           <span>${photographerInfos.city}</span> 
@@ -88,10 +90,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     </div>     
                     <div>
                         <a href= "#">
-                        <img src=assets/images/Sample_Photos/Photographers_ID_Photos/${photographerInfos.portrait}/>
+                        <img src=assets/images/Sample_Photos/Photographers_ID_Photos/${photographerInfos.portrait} />
                         </a>
                     </div>
-            `;
+              `;
               // injection dans le dom du résultat de photographerHTML, au niveau de la class photographer-header.
               document.querySelector(".photographer-header").innerHTML = photographerHTML;
               // affiche le nom du photographe dans le titre de la modale
