@@ -1,9 +1,10 @@
 /* ENCART TOTAL LIKES */
 
+
 .photographer-info {
     position: fixed;
     bottom: 0px;
-    right: 80px;
+    left: 75%;
     background-color: #db8876;
     color: black;
     display: flex;
@@ -11,6 +12,7 @@
     padding: 0px 20px;
     border-radius: 5px 5px 0px 0px;
     width: 300px;
+    margin:0vh;
 }
 
 .photographer-info img {

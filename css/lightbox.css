@@ -15,7 +15,8 @@
     height: 65px;
     margin: 45vh auto;
     align-items: center;
-    color:#901C1C !important;    
+    color:#901C1C !important;   
+    cursor: pointer; 
 }
 
 .right-arrow {
@@ -37,13 +38,13 @@
 }
 .close-lightbox {
     position: absolute;
-
     color: #901C1C;
     width: 60px;
     height: 60px;
     display: list-item;
     top:40px;
     left: 90%;
+    cursor: pointer;
    
     
 }

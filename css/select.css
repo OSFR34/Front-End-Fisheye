@@ -6,22 +6,20 @@
 #flexRow {
 display:flex;
 flex-direction: row;
-
+position: absolute;
 }
+
 .flexColumn {
 display: flex;
 flex-direction: column;
-
 }
+
 .dropdown-span {
 margin: 15px 15px 15px 100px;
-
+font-weight: bold;
 }
 
-
-
 #select-first-option span::after{
-
   content:" ^ ";
   display:inline-block;
   vertical-align:bottom;
@@ -41,18 +39,14 @@ margin: 15px 15px 15px 100px;
   position: relative;
   display: block;
   justify-content: left;
-  border: 0.1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
   cursor: pointer;
   height: 50px;
   border-radius: 5px; 
- 
-  
-
 }
 
 #select-block-options{
-
   display:none;
-
+  position: relative;
 }
 

@@ -28,7 +28,7 @@ function lightBox(arrayOfMedias, indexMediaToDisplay){
 // créer une constante du 1er média affiché = permet de récupérer l'index du média cliqué en mettent entre crochets indexMediaToDisplay (avec l'index on récupère également les autres informations)
      const firstMediaToDisplay = arrayOfMedias[indexMediaToDisplay]; 
 // 5-console.log(firstMediaToDisplay) verification que l'on récupère bien l'index du premier média sur lequel on a cliqué.
-// 6-puis l'appel la focntion qui ouvre la lightbox pour qu'elle apparaisse.
+// 6-puis appel de la fonction qui ouvre la lightbox pour qu'elle apparaisse.
 // puis il faut que j'affiche le média
 
      openLightbox();
@@ -41,7 +41,7 @@ function lightBox(arrayOfMedias, indexMediaToDisplay){
  
      arrows.forEach((arrow)=>{ /*12-pour chaque flèche */
 
-          arrow.addEventListener("click", ()=>{ /*13-placement d'un écouteur d'événement au click pour chaque flèque */
+          arrow.addEventListener("click", ()=>{ /*13-placement d'un écouteur d'événement au click pour chaque fléche */
 
                  const textToSearch = document.querySelector(".title-image-lightbox").textContent;
 
@@ -53,14 +53,14 @@ function lightBox(arrayOfMedias, indexMediaToDisplay){
 
   /*14- L'API classList permet d'accéder à la liste des classes appliquées à un élément HTML, de manière simple et efficace via les méthodes suivantes : 
   length : retourne le nombre de classes
-contains(nom_classe) : vérifie si la classe spécifiée ici("right-arrow") est appliquée, ici s' il c'est cliqué, c'est-à-dire true. */
+contains(nom_classe) : vérifie si la classe spécifiée ici("right-arrow") est appliquée, ici s' il est bien cliqué, c'est-à-dire true. */
 
                 if(arrow.classList.contains("right-arrow") === true){
 
                         // 15-si l'index actuel est inférieur à la longuer du tableau des médias ( les index commencent tj par 0 et length (indique le nombre d'éléments présents dans le tableaux) commence par 1 d'où le -1 pour retrouver le même nombre)
                       
                        if(actualIndex < arrayOfMedias.length - 1){
-                        //  affiche le média dont l'index est plus 1
+                        //  affiche le média lightbox contenu ds le tableau des médias correspondant à l'index média courant plus 1
 
                            return displayMediaInLightbox(arrayOfMedias[actualIndex + 1]);
 
@@ -74,6 +74,7 @@ contains(nom_classe) : vérifie si la classe spécifiée ici("right-arrow") est 
 
 
                       if(actualIndex > 0){
+                        // affiche le média lightbox contenu ds le tableau des médias correspondant à l'index média courant moins 1
 
                             return displayMediaInLightbox(arrayOfMedias[actualIndex - 1]);
 
@@ -95,7 +96,7 @@ contains(nom_classe) : vérifie si la classe spécifiée ici("right-arrow") est 
                                                                           height: 40rem !important;
 } ) */
 
-// on coupe le html du correcpondant puis on le colle après ${mediaFactory(mediaToDisplay)}
+// on coupe le html correspondant puis on le colle après ${mediaFactory(mediaToDisplay)}
       const mediaHTML = `
     
         ${mediaFactory(mediaToDisplay)}
@@ -120,6 +121,6 @@ contains(nom_classe) : vérifie si la classe spécifiée ici("right-arrow") est 
 
 
     }
-
-    document.querySelector(".close-lightbox").addEventListener("click", closeLightbox);
+      // je défini un emplacement puis place un écouteur d'événe+ et je précise q c'est au "click" et je lui mets la fct souhaitée ici closeLigntbox (important pour que ça fonctionne, il respecter les parenthèses acr au début j'avais mis cette ligne de code avt la fermerture du return false plus haut)
+      document.querySelector(".close-lightbox").addEventListener("click", closeLightbox);
 }
