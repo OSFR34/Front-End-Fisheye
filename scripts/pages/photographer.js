@@ -13,9 +13,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
        }).then((result)=>{
             const photographersInfo = result.photographers;
             const photographersMedias = result.media;
+            // initialisation variable du filtre du select
             let isOpen = false;
-            const selectOptions = document.querySelector("#select-block-options");            
-            const firstButtonText = document.querySelector("#select-first-option-text");            
+            const selectOptions = document.querySelector("#select-block-options");           
+            const firstButtonText = document.querySelector("#select-first-option-text");          
             const optionsButtons = selectOptions.querySelectorAll("button");
             const photographerInfoArray = getPhotographerInfo(photographersInfo, photographerId);
             const photographerMediasArray = getPhotographerMedias(photographersMedias, photographerId);
@@ -23,7 +24,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
             displayPhotographerMedia(photographerMediasArray); 
 
 
-// ---------SELECT ECOUTEUR D'EVENEMENT--------------------------
+// ---------SELECT MENU DEROULANT FILTRES--------------------------
+
+// choix d'écrire ce code ds cette page car la portée des fct displayPhotographerMedia et photographerMediasArray ne sont valable que ds cette page juste plus haut.
 
             document.querySelector("#select-first-option").addEventListener("click", ()=>{
               if(isOpen === false){              
@@ -46,14 +49,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
             function handleButtonsOptions(){     
               optionsButtons.forEach((button)=>{                 
                        button.onclick = ()=>{         
-                          // Récupération du contenu du bouton cliquer (textContent récupère le contenu de tous les éléments, y compris <script> et <style>)                       
+                          // Récupère le contenu du bouton cliqué (textContent récupère le contenu de tous les éléments, y compris <script> et <style>)                       
                           const buttonText = button.textContent;         
                          // j'affecte le texte du button cliqué au premier bouton (remplacement du texte du premier bouton par celui qui est cliqué)
                           button.textContent = firstButtonText.textContent;                             
                          //   j'affecte le texte du premier button par celui qui a été cliqué
                           firstButtonText.textContent = buttonText;                           
-                         // je retourne la fct de fermeture de la liste déroulante.    
-                          displayPhotographerMedia(filterMedias(buttonText, photographerMediasArray));                             
+                         // j'appelle la fonction displayPhotographerMedia qui prend pour paramètre la fonction filterMedias (initialisé ds page filterMedias.js) qui a prend lui même pour 1er paramètre le  texte sur lequel on a cliqué et 2nd paramètre le tableau des médias des photographes (ordre très important). 
+                          displayPhotographerMedia(filterMedias(buttonText, photographerMediasArray)); 
+                              // j'appelle ma fct de fermeture du select  
                               return closeSelect();                 
                        };   
               });
@@ -92,9 +96,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         <a href= "#">
                         <img src=assets/images/Sample_Photos/Photographers_ID_Photos/${photographerInfos.portrait} />
                         </a>
-                    </div>
-              `;
+                    </div> `;
               // injection dans le dom du résultat de photographerHTML, au niveau de la class photographer-header.
+              // utilisation de la propriété innerHTML  récupère ou définit la syntaxe HTML décrivant les descendants de l'élément.
               document.querySelector(".photographer-header").innerHTML = photographerHTML;
               // affiche le nom du photographe dans le titre de la modale
               document.querySelector("#namePhotographer").textContent = photographerInfos.name;
