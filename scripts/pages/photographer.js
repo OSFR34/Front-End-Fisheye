@@ -5,10 +5,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
        const photographerId = new URL(document.location).searchParams.get("id");
 
        // méthode globale fetch() récupérer des données des photographes à travers le fichier.json de manière asynchrone.
-      // entre parenthèses après fetch prend un argument qui contient le chemin de la ressource que ns souhaitons récupérer ensuite (=traduit de .then) response de l'API fetch représenre la réponse d'une requête initialisée
-
-       fetch("../../data/photographers.json").then((response)=>{
-             return response.json();
+      // entre parenthèses après fetch prend en 1ère argument qui l'url de la ressource que ns souhaitons récupérer. 
+       fetch("../../data/photographers.json")
+          // Ensuite, on va avoir then(première promesse) qui va contenir notre réponse (traduc then= response). les données seront brut et non accessible.
+          .then((response)=>{
+            // pour que les données soient accessible, je la transforme en format json 
+            return response.json();
 
        }).then((result)=>{
             const photographersInfo = result.photographers;
@@ -97,19 +99,19 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         <img src=assets/images/Sample_Photos/Photographers_ID_Photos/${photographerInfos.portrait} />
                         </a>
                     </div> `;
-              // injection dans le dom du résultat de photographerHTML, au niveau de la class photographer-header.
-              // utilisation de la propriété innerHTML  récupère ou définit la syntaxe HTML décrivant les descendants de l'élément.
+              // Injection dans le dom du résultat de photographerHTML, au niveau de la class photographer-header.
+              // Utilisation de la propriété innerHTML  récupère ou définit la syntaxe HTML décrivant les descendants de l'élément.
               document.querySelector(".photographer-header").innerHTML = photographerHTML;
-              // affiche le nom du photographe dans le titre de la modale
+              // Affiche le nom du photographe dans le titre de la modale
               document.querySelector("#namePhotographer").textContent = photographerInfos.name;
-              // affiche le tarif par photographe dans l'encart total likes
-              document.querySelector("#photographer-price-day").textContent = `${photographerInfos.price}€ / jour`;
+              // Affiche le tarif par photographe dans l'encart total likes
+              document.querySelector("#photographer-price-day").textContent = `${photographerInfos.price} € / jour`;
        }
       //  Obtenir les médias des photographes  par id du photographe ds le tableau des médias 
        function getPhotographerMedias(mediasArray, idPhotograph){
-            // retourne un tableau des médias filtré par média
+            // Retourne un tableau des médias filtré par média
             return mediasArray.filter((media)=>{
-                // retourne le nombre de médias ayant id du photographe et ce nombre est strictement égale au numéro de l'id du photographe
+                // Retourne le nombre de médias ayant id du photographe et ce nombre est strictement égale au numéro de l'id du photographe
                 return Number(media.photographerId) === Number(idPhotograph);
             });
        }
@@ -127,13 +129,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         <span class="picture-name">${media.title}</span>
                         <span class="likes-area" aria-hidden="false" aria-label="likes">
                           <span class="likes-number">${media.likes}</span>
-                        <i class="fas fa-heart"></i></span>
-                        
+                        <i class="fas fa-heart"></i></span>                        
                     </div>        
-                    </div>
-                  
-                  `;
-
+                    </div> `;
              });
             //  injection dans le dom du contenu de la variable htmlMedias (grâce à la methode .innerHTML qui renvoi le contenu textuel ainsi que les balises et attributs), au niveau de l'id gallery.
              document.querySelector("#gallery").innerHTML = htmlMedias;
@@ -149,8 +147,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                   media.addEventListener("click", ()=>{
 
                     // verification avt de passer à la suite: 
-                    // alert(index) résultat on doit retrouver 0 qd on clique sur la première image. 
-
+                    // alert(index) résultat on doit retrouver 0 qd on clique sur la première image.
                     //j'appelle la fct  lightBox et lui précisant les vrais valeurs de ces paramètres (1er argument qui est une variable=arrayMedias crée plus haut, et le paramètre index qui est une méthode)
 
                         lightBox(arrayMedias, index);
@@ -167,11 +164,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
 /*syntaxe for (initialisation; condition: la boucle sera exécuté tant que i sera inférieur à la longueur du tableau des médias;incrémentation +1 : À chaque éxécution, la variable "i" augmentera de 1.Lorsque'elle sera arrivée à la longueur du tableau, le boucle se terminera.*/
              for(let i=0; i<arrayMedias.length; i++){
                   // affectation après addition de la somme des itérations des likes du tableau des médias en valeur number.
-                  totalNumberOfLikes+= Number(arrayMedias[i].likes);
+                  totalNumberOfLikes += Number(arrayMedias[i].likes);
              }
             //  injection du résultat (totalNumberOfLikes) à l'emplacement de l'id #photographer-all-likes
              document.querySelector("#photographer-all-likes").textContent = totalNumberOfLikes;
-            //  exécution de la fonction likes
+            //  exécution de la fonction likes qui est initilisé ds la page likes.js
              likes();
        }
 });

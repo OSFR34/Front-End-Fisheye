@@ -11,8 +11,8 @@
 }
 
 .right-arrow, .left-arrow{
-    width: 65px;
-    height: 65px;
+    width: 50px;
+    height: 50px;
     margin: 45vh auto;
     align-items: center;
     color:#901C1C !important;   
@@ -24,7 +24,7 @@
 }
 
 #lightbox-media img, #lightbox-media video {
-    width: 40rem !important;
+    width: 50rem !important;
     height: 40rem !important;
     margin: 15vh auto;
     align-items: center;
@@ -39,11 +39,11 @@
 .close-lightbox {
     position: absolute;
     color: #901C1C;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     display: list-item;
     top:40px;
-    left: 90%;
+    left: 84%;
     cursor: pointer;
    
     

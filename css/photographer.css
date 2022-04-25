@@ -52,13 +52,14 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    line-height: 0px;
    
    
 }
 
 .modal header img {
     cursor: pointer;
-    margin-top:0px;
+    margin-top:25px;
     height: 1.1rem;
     margin-left: 185px;
     color: white;   
@@ -67,7 +68,7 @@
 .modal header h2, #namePhotographer {
     font-size: 1.8rem;
     font-weight: normal;
-    line-height: 30px;
+    line-height: 18px;
     }
 
 form {

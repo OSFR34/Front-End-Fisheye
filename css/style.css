@@ -23,35 +23,36 @@ body {
 
 header {
     display: flex;
-    flex-direction: column ;
-    justify-content:start;
-}
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    margin-top: 2rem;
+  }
+  
+  h1 {
+    color: #901c1c;
+    margin-right: 110px;
+    font-size: 2.4rem;
+  }
 .closeSuccesMessage {
     height: 120px;
 }
 
-
-h1 {
-    color: #901C1C;
-    margin-right: 100px;
-}
 h2 {
     margin-top: 25px;
-
 }
 
 .logo {
-    height: 48px;
+    height: 60px;
     margin-left: 110px;
-   max-width: 150px;
-   padding-top: 10px;
 }
 
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 .photographer_section article {
@@ -68,8 +69,8 @@ h2 {
 }
 
 .photographer_section article img, photographer_header img{
-    height: 15rem;
-    width: 15rem;
+    height: 13rem;
+    width: 13rem;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: rgb(82, 82, 82) 0px 2px 16px -6px;
@@ -83,7 +84,7 @@ h2 {
 .photographer_description {
     font-weight: 510;
     font-size: 1.15rem;
-    /* margin-top: -10px !important; */
+    margin-top: -10px !important;
     padding-bottom: 0.35rem;
 }
 .photographer_price {
@@ -114,9 +115,10 @@ h2 {
 }
 .photographer-header .box h2 {
     color: #D3573C;
-    font-size: 36px;
+    font-size: 3.5rem;
     margin-top: -15px;
     margin-bottom: 5px;
+    font-weight: 500;
 }
 .photographer-header  img{
     height: 11rem;
@@ -126,8 +128,9 @@ h2 {
     box-shadow: rgb(82, 82, 82) 0px 2px 16px -6px;
 }
 .photographer_city_country {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 600;
+    margin-top: 3px;
 }
 .box-photos {
     display: grid;
@@ -144,7 +147,7 @@ h2 {
 }
 .photographer_section article h2 {
     color: #D3573C;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-family: Arial;
     font-weight: bold;
     margin: 0px 0px 18px;
@@ -176,7 +179,7 @@ h2 {
    padding-top:25px;
    padding-bottom:15px;
    position:relative; 
-   font-size: 1rem; 
+   font-size: 1.18rem; 
    color: #901C1C;
    line-height: 0.7px;
 }
