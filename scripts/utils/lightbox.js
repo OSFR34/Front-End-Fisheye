@@ -43,13 +43,6 @@ function lightBox(arrayOfMedias, indexMediaToDisplay){
 
           arrow.addEventListener("click", ()=>{ /*13-placement d'un écouteur d'événement au click pour chaque fléche */
 
-                 const textToSearch = document.querySelector(".title-image-lightbox").textContent;
-
-                 const actualIndex = arrayOfMedias.findIndex((media)=>{
-
-                    return media.title === textToSearch;
-
-                  });
 
   /*14- L'API classList permet d'accéder à la liste des classes appliquées à un élément HTML, de manière simple et efficace via les méthodes suivantes : 
   length : retourne le nombre de classes
@@ -57,36 +50,66 @@ contains(nom_classe) : vérifie si la classe spécifiée ici("right-arrow") est 
 
                 if(arrow.classList.contains("right-arrow") === true){
 
-                        // 15-si l'index actuel est inférieur à la longuer du tableau des médias ( les index commencent tj par 0 et length (indique le nombre d'éléments présents dans le tableaux) commence par 1 d'où le -1 pour retrouver le même nombre)
-                      
-                       if(actualIndex < arrayOfMedias.length - 1){
-                        //  affiche le média lightbox contenu ds le tableau des médias correspondant à l'index média courant plus 1
-
-                           return displayMediaInLightbox(arrayOfMedias[actualIndex + 1]);
-
-                       }
-
-                       return false;
+                       nextPicture();
 
                 }
 
                 if(arrow.classList.contains("left-arrow") === true){
 
 
-                      if(actualIndex > 0){
-                        // affiche le média lightbox contenu ds le tableau des médias correspondant à l'index média courant moins 1
-
-                            return displayMediaInLightbox(arrayOfMedias[actualIndex - 1]);
-
-                      }
-
-                      return false;
+                      previousPicture();
 
                 }
 
           });
 
-     })     
+     });
+     
+     function nextPicture(){
+             
+              const textToSearch = document.querySelector(".title-image-lightbox").textContent;
+
+              const actualIndex = arrayOfMedias.findIndex((media)=>{
+
+                  return media.title === textToSearch;
+
+              });
+
+               // 15-si l'index actuel est inférieur à la longuer du tableau des médias ( les index commencent tj par 0 et length (indique le nombre d'éléments présents dans le tableaux) commence par 1 d'où le -1 pour retrouver le même nombre)
+                      
+               if(actualIndex < arrayOfMedias.length - 1){
+                  //  affiche le média lightbox contenu ds le tableau des médias correspondant à l'index média courant plus 1
+
+                     return displayMediaInLightbox(arrayOfMedias[actualIndex + 1]);
+
+                 }
+
+                 return false;
+
+     }
+
+     function previousPicture(){
+
+            const textToSearch = document.querySelector(".title-image-lightbox").textContent;
+
+            const actualIndex = arrayOfMedias.findIndex((media)=>{
+
+            return media.title === textToSearch;
+
+            });
+
+
+            if(actualIndex > 0){
+                  // affiche le média lightbox contenu ds le tableau des médias correspondant à l'index média courant moins 1
+
+                  return displayMediaInLightbox(arrayOfMedias[actualIndex - 1]);
+
+            }
+
+            return false;
+
+
+      }
 
     function displayMediaInLightbox(mediaToDisplay){
 
@@ -121,6 +144,30 @@ contains(nom_classe) : vérifie si la classe spécifiée ici("right-arrow") est 
 
 
     }
+
+
+    document.addEventListener("keydown", (event)=>{
+
+      if(event.key === "Escape"){
+
+          return closeLightbox();
+
+      }
+      
+      if(event.key === "ArrowRight"){
+
+          nextPicture();
+      }
+
+      if(event.key === "ArrowLeft"){
+
+          previousPicture();
+
+      }
+
+      });
+
+
       // je défini un emplacement puis place un écouteur d'événe+ et je précise q c'est au "click" et je lui mets la fct souhaitée ici closeLigntbox (important pour que ça fonctionne, il respecter les parenthèses acr au début j'avais mis cette ligne de code avt la fermerture du return false plus haut)
       document.querySelector(".close-lightbox").addEventListener("click", closeLightbox);
 }

@@ -24,11 +24,11 @@
             <header>
               <div class="headerModal">
                 <div>
-                  <h2 aria-label="Contactez-moi">Contactez-moi</h2>
+                  <h2 aria-label="Contactez-moi" tabindex="0">Contactez-moi</h2>
                   <p class="namePhotographer" id="namePhotographer"></p>
                 </div>
-                <img src="assets/icons/close.svg" alt="fermeture du formulaire de contact" tabindex="0" onclick="closeModal()" />
-              </div>
+                <img src="assets/icons/close.svg" id="close-modal" tabindex="0" alt="fermeture du formulaire de contact" />
+              </div> 
             </header>
 
             <form id="form" name="contact" action="index.html" method="get">
@@ -68,7 +68,7 @@
             <div id="select-block-options">
                 <div class="flexColumn">
                   <button class="select-option" tabindex="0" aria-label="tri photos par date">Date</button>
-                  <button class="select-option" tabindex="0"aria-label="tri photos par titre">Titre</button>
+                  <button class="select-option" tabindex="0" aria-label="tri photos par titre">Titre</button>
                 </div>
             </div>
             </ul> 
@@ -103,7 +103,7 @@
 
         <div id="lightbox">
           <div>
-            <img class="close-lightbox" src="assets/icons/close lightbox.svg" alt="croix de fermeture d'agrandissement de photos" aria-label="Fermer lightbox" />
+            <img class="close-lightbox" src="assets/icons/close lightbox.svg" alt="croix de fermeture d'agrandissement de photos" tabIndex="6" aria-label="Fermer lightbox" />
           </div>
           <img class="left-arrow arrows" src="assets/icons/arrow_icon.svg" alt="flèche d'affichage photo précédente" aria-label="photo précédente" />
           <div id="lightbox-media">  
@@ -135,7 +135,5 @@
   <script src="./scripts/utils/lightbox.js"></script>
 
   <script src="./scripts/utils/likes.js"></script>
-
-
 
 </html>

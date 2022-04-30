@@ -29,6 +29,12 @@ font-weight: bold;
   top:57%;  
 }
 
+#select-first-option{
+
+  border-radius:5px 5px 0px 0px;
+
+}
+
 .select-option{
   font-size: 0.9rem;
   font-weight: 400;
@@ -41,8 +47,14 @@ font-weight: bold;
   justify-content: left;
   border-bottom: 1px solid #ffffff;
   cursor: pointer;
-  height: 50px;
-  border-radius: 5px; 
+  height: 50px; 
+}
+
+.select-option:last-child{
+
+     border:none;
+     border-radius:0px 0px 5px 5px;
+
 }
 
 #select-block-options{

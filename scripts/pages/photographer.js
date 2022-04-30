@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 // création de la variable/ "" signifie chaine de caractères.
               let htmlMedias = "";
             // récupération de chaque média ds le tableau des médias
-             arrayMedias.forEach((media)=>{
+             arrayMedias.forEach((media, index)=>{
                     // htmlMedias permet la création du html/+= l'opérateur addition et égale permet la concaténation de la variable arrayMedias (qui récupére chaque média) AVEC le contenu des bactiques.(=étant ici l'assignation)
                   htmlMedias += `                  
                     <div class="gallery-element">        
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
                   });
 
-             }); 
+             });
 
     /* --------------- TOTAL LIKES -----------------*/
 
@@ -169,6 +169,44 @@ document.addEventListener("DOMContentLoaded", ()=>{
              document.querySelector("#photographer-all-likes").textContent = totalNumberOfLikes;
             //  exécution de la fonction likes qui est initilisé ds la page likes.js
              likes();
+
+
+
+             function keyboardAccessibility(){
+
+              document.addEventListener("keydown", (event)=>{
+          
+                  if(event.key === "Enter"){
+          
+                        if(event.target?.id === "close-modal"){
+          
+                             return closeModal();
+          
+                        }
+                        
+                        if(event.target?.classList[0] === "article-media"){
+
+                             const mediaIndex = arrayMedias.findIndex((media)=>{
+ 
+                                    return media.title === event.target?.dataset?.alttxt;
+
+                             });
+
+                             return lightBox(arrayMedias, mediaIndex);
+
+                        }
+
+                        if(event.target?.className === "close-lightbox"){
+
+                              return closeLightbox();
+
+                        }
+                        
+                  }
+              });
+             }
+
+             keyboardAccessibility();
        } 
 });
    
