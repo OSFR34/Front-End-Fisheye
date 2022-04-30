@@ -36,11 +36,11 @@
 .modal {
     border-radius: 5px;
     background-color: #db8976de;
-    width: 450px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 20px 10px 20px;
+    padding: 0px 20px 10px 20px;
     margin: auto;
     margin-top: 45px;
     min-height: 55vh;
@@ -59,9 +59,8 @@
 
 .modal header img {
     cursor: pointer;
-    margin-top:25px;
     height: 1.1rem;
-    margin-left: 185px;
+    margin-left: 220px;
     color: white;   
 }
 
@@ -81,6 +80,7 @@ form {
 form label {
     color: #312E2E;
     font-size: 1.2rem;
+    padding-left: 10px;
 }
 
 form div {
@@ -141,7 +141,9 @@ form input, .boxTextarea {
 #crossSuccessMessage img{
     width: 20px;
     height: 20px;
+    margin-top: 20px;
 }
+
 
 
 

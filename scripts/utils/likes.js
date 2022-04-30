@@ -16,12 +16,12 @@ function likes(){
             heart.addEventListener("click", function(){
                   // alert("click").
 
-                  // cons numberOfLikes: récupère l'élémentHTML précédent le heart(soit le nombre avt le coeur) grâce à la propriété previousSibling .
-                  const numberOfLikes = heart.previousSibling;
+                  // cons numberOfLikes: récupère le contenu textuel précédent le heart(soit le nombre avt le coeur) grâce à la propriété previousSibling .
+                  const numberOfLikes = heart.previousElementSibling ;
                   // console/log(numberOfLikes) 
                   //  résultat : <span class="likes-numbre>101<span>
 
-                  // récupèration du contenu textuel sans les balises grâce à la propriété textContent et j'attribue le valeur number au contenu  textuel que j'ai récupéré, et je lui ajoute 1. 
+                  // récupèration le contenu textuel sans les balises grâce à la propriété textContent et j'attribue le valeur number au contenu  textuel que j'ai récupéré, et je lui ajoute 1. 
                   numberOfLikes.textContent = Number(numberOfLikes.textContent) + 1;
 
 
@@ -30,4 +30,4 @@ function likes(){
                   totalNumberOfLikes.textContent = Number(totalNumberOfLikes.textContent) + 1;
             });
      })
-}
+} 

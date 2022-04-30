@@ -23,8 +23,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             const photographerInfoArray = getPhotographerInfo(photographersInfo, photographerId);
             const photographerMediasArray = getPhotographerMedias(photographersMedias, photographerId);
             displayPhotographerInfo(photographerInfoArray[0]);
-            displayPhotographerMedia(photographerMediasArray); 
-
+            displayPhotographerMedia(photographerMediasArray);   
 
 // ---------SELECT MENU DEROULANT FILTRES--------------------------
 
@@ -76,7 +75,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                      return Number(photographer.id) === Number(idPhotograph);
               });
        }
-        // Affichage des info du photographe avec comme paramètre (photographerInfos).
+        // Affichage les info du photographe avec comme paramètre (photographerInfos).
        function displayPhotographerInfo(photographerInfos){
       // création d'une constante qui va créer du code comme en html mais en remplacant les données variables par les cléfs correspondantes à l'objet de la page.
             const photographerHTML = `             
@@ -109,7 +108,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
        }
       //  Obtenir les médias des photographes  par id du photographe ds le tableau des médias 
        function getPhotographerMedias(mediasArray, idPhotograph){
-            // Retourne un tableau des médias filtré par média
+            // Retourne un tableau des médias filtrés par média 
             return mediasArray.filter((media)=>{
                 // Retourne le nombre de médias ayant id du photographe et ce nombre est strictement égale au numéro de l'id du photographe
                 return Number(media.photographerId) === Number(idPhotograph);
@@ -130,7 +129,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         <span class="likes-area" aria-hidden="false" aria-label="likes">
                           <span class="likes-number">${media.likes}</span>
                         <i class="fas fa-heart"></i></span>                        
-                    </div>        
+                        </div>        
                     </div> `;
              });
             //  injection dans le dom du contenu de la variable htmlMedias (grâce à la methode .innerHTML qui renvoi le contenu textuel ainsi que les balises et attributs), au niveau de l'id gallery.
@@ -170,8 +169,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
              document.querySelector("#photographer-all-likes").textContent = totalNumberOfLikes;
             //  exécution de la fonction likes qui est initilisé ds la page likes.js
              likes();
-       }
+       } 
 });
-
+   
 
 
