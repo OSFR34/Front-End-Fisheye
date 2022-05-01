@@ -1,11 +1,16 @@
+/*--------------------CREER DYNAMIQUEMENT LE HTML EN JAVASCRIPT------------------------ */
 function photographerFactory(data) {
+    // affectation par destruction (data représente un object)
     const { name, portrait, id, city, country, tagline, price } = data;
 
     const picture = `assets/images/Sample_Photos/Photographers_ID_Photos/${portrait}`;
 
     function getUserCardDOM() {
+        // création balise article
         const article = document.createElement('article');
+        // création du lien
         const photographerLink = document.createElement("a");
+        // création d'un attribut href et on ajoute url du photographe avec son id
         photographerLink.setAttribute("href",`photographer.html?id=${id}`);
         const img = document.createElement ('img');
         img.setAttribute("src", picture);
@@ -34,10 +39,5 @@ function photographerFactory(data) {
     return { name, picture, portrait, id, city, country, tagline, price, getUserCardDOM }
 }
 
-// function mediaFactory(data){
-//     const { id, photographerId, title, image, likes, date, price } = data;
 
-//     const pictureMedia = `assets/images/Sample_Photos/photographer_ID_Photos/$`
-
-// }
     

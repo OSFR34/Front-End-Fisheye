@@ -1,5 +1,5 @@
     async function getPhotographers() {
-        // Penser à remplacer par les données récupérées dans le json
+        // Ajout de tous les objects (les données) des photographes récupérées dans le dossier json
         const photographers = [
             {
                 "name": "Mimi Keel",
