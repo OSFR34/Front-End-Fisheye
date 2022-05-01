@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
        // méthode globale fetch() récupérer des données des photographes à travers le fichier.json de manière asynchrone.
       // entre parenthèses après fetch prend en 1ère argument qui l'url de la ressource que ns souhaitons récupérer. 
-       fetch("./../../data/photographers.json")
+       fetch("./../../photographers.json")
           // Ensuite, on va avoir then(première promesse) qui va contenir notre réponse (traduc then= response). les données seront brut et non accessible.
           .then((response)=>{
             // pour que les données soient accessible, je la transforme en format json 
