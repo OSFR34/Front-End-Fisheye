@@ -171,21 +171,21 @@ document.addEventListener("DOMContentLoaded", ()=>{
              likes();
 
 
-
+/*-----------------ACCESSIBILITE CLAVIER-------------------- */
              function keyboardAccessibility(){
-
+              // L' keydown événement est déclenché lorsqu'une touche est enfoncée.
               document.addEventListener("keydown", (event)=>{
-          
+          //La propriété de key l'interface KeyboardEvent retourne la valeur d'une ou plusieurs touches pressées
                   if(event.key === "Enter"){
-          
+            // event.target renvoi la cible qui avait le focus qd on a appuyer sur la touche et son id
                         if(event.target?.id === "close-modal"){
-          
-                             return closeModal();
-          
-                        }
-                        
+                          // retourne la fct closeModal
+                             return closeModal();          
+                        } 
+                 // La classList propriété renvoie les noms de classe CSS d'un élément 
                         if(event.target?.classList[0] === "article-media"){
 
+                // findIndex() renvoie l'index du premier élément qui passe un test (fourni par une fonction).
                              const mediaIndex = arrayMedias.findIndex((media)=>{
  
                                     return media.title === event.target?.dataset?.alttxt;

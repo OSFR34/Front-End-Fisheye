@@ -17,28 +17,27 @@ function likes(){
                   addLike(heart);
             });
      })
+/*-------------------ACCESSIBILITE CLAVIER------------------------- */
 
+//      L' keydown événement est déclenché lorsqu'une touche est enfoncée.
      document.addEventListener("keydown", (event)=>{
-
+// si la touche enfoncée est entrer
              if(event.key === "Enter"){
-
+// event.target renvoi id de la cible qui avait le focus qd on a appuyer sur la touche.
+// .classList renvoi un tableau et [1]indique indique voulu
                   if(event.target?.classList[1] === "fa-heart"){
-
+                        // retourne la fct addLike
                         return addLike(event.target);
-
                   }
-
              }
-
       });
 
       function addLike(heartNode){
-
             // cons numberOfLikes: récupère le contenu textuel précédent le heart(soit le nombre avt le coeur) grâce à la propriété previousSibling .
             const numberOfLikes = heartNode.previousElementSibling ;
             //  résultat : <span class="likes-numbre>101<span>
 
-            // récupèration le contenu textuel sans les balises grâce à la propriété textContent et j'attribue le valeur number au contenu  textuel que j'ai récupéré, et je lui ajoute 1. 
+            // récupèration du contenu textuel sans les balises grâce à la propriété textContent et j'attribue le valeur number au contenu  textuel que j'ai récupéré, et je lui ajoute 1. 
             numberOfLikes.textContent = Number(numberOfLikes.textContent) + 1;
 
 
