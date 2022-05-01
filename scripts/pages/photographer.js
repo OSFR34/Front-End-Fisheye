@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         <span class="picture-name">${media.title}</span>
                         <span class="likes-area" aria-hidden="false" aria-label="likes">
                           <span class="likes-number">${media.likes}</span>
-                        <i class="fas fa-heart"></i></span>                        
+                        <i class="fas fa-heart" tabIndex="3"></i></span>                        
                         </div>        
                     </div> `;
              });

@@ -156,12 +156,12 @@ contains(nom_classe) : vérifie si la classe spécifiée ici("right-arrow") est 
       
       if(event.key === "ArrowRight"){
 
-          nextPicture();
+          return nextPicture();
       }
 
       if(event.key === "ArrowLeft"){
 
-          previousPicture();
+          return previousPicture();
 
       }
 
