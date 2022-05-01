@@ -31,7 +31,7 @@ function photographerFactory(data) {
         
         return (article);
     }
-    return { name, picture,name, portrait, id, city, country, tagline, price, getUserCardDOM }
+    return { name, picture, portrait, id, city, country, tagline, price, getUserCardDOM }
 }
 
 // function mediaFactory(data){
