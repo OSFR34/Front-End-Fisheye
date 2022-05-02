@@ -1,6 +1,7 @@
 /*--------------------CREER DYNAMIQUEMENT LE HTML EN JAVASCRIPT------------------------ */
+// affectation par destruction (data représente un objec, ici un photographe)
 function photographerFactory(data) {
-    // affectation par destruction (data représente un object)
+    
     const { name, portrait, id, city, country, tagline, price } = data;
 
     const picture = `assets/images/Sample_Photos/Photographers_ID_Photos/${portrait}`;
@@ -10,11 +11,12 @@ function photographerFactory(data) {
         const article = document.createElement('article');
         // création du lien
         const photographerLink = document.createElement("a");
-        // création d'un attribut href et on ajoute url du photographe avec son id
+    // création d'un attribut href et on ajoute url du photographe avec son id(? permet de séparer l'URL d'une variable)
         photographerLink.setAttribute("href",`photographer.html?id=${id}`);
         const img = document.createElement ('img');
         img.setAttribute("src", picture);
-        photographerLink.append(img);
+        // ajoute la balise image(enfant) dans photographerLink (parent)
+        photographerLink.appendChild(img);
         const photographerName = document.createElement('h2');
         photographerName.textContent = name;
         const photographerCityAndCountry = document.createElement ('p');
@@ -28,11 +30,11 @@ function photographerFactory(data) {
         photographerPrice.textContent = `${price}€ / jour`;
 
          
-        article.append(photographerLink);
+        article.appendChild(photographerLink);
         article.appendChild(photographerName);
-        article.append(photographerCityAndCountry);
-        article.append(photographerDescription)
-        article.append(photographerPrice)
+        article.appendChild(photographerCityAndCountry);
+        article.appendChild(photographerDescription)
+        article.appendChild(photographerPrice)
         
         return (article);
     }

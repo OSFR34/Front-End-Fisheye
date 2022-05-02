@@ -1,5 +1,6 @@
+    // fonction asynchrone qui appelle les photographes
     async function getPhotographers() {
-        // Ajout de tous les objects (les données) des photographes récupérées dans le dossier json
+        // Remplacement des données test par les données des photographes récupérées dans le dossier json
         const photographers = [
             {
                 "name": "Mimi Keel",
@@ -56,7 +57,8 @@
                 "portrait": "MarcelNikolic.jpg"
             }
         ]
-        // et bien retourner le tableau photographers seulement une fois
+        // Retourner la constante photographers sous forme de tableau (retrait des : ,...photographers en trop car nous voulons qu'un seul tableau)
+        // syntaxe ... (=Spread Operator=opérateur de décomposition) permet de récupérer chaque élément de l'objet photographers et comme il est entre crochet il renvoi un tableau.
         return ({
             photographers: [...photographers]})
     }
@@ -64,6 +66,7 @@
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
 
+ // Créer un element article (fct initialisé getUserCardDOM, ds factories, ds photographer.js) avec les données pour chaque photographe
         photographers.forEach((photographer) => {
             const photographerModel = photographerFactory(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
