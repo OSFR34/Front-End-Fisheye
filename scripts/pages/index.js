@@ -1,6 +1,7 @@
     // fonction asynchrone qui appelle les photographes
+    // asynchrone :deux opérations sont qualifiées d’asynchrones en informatique lorsqu’elles sont indépendantes c’est-à-dire lorsque la deuxième opération n’a pas besoin d’attendre que la première se termine pour démarrer.
     async function getPhotographers() {
-        // Remplacement des données test par les données des photographes récupérées dans le dossier json
+        // Récupérer(ou aller chercher) les données des photographes (données copié depuis le dossier json
         const photographers = [
             {
                 "name": "Mimi Keel",
@@ -66,20 +67,23 @@
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
 
- // Créer un element article (fct initialisé getUserCardDOM, ds factories, ds photographer.js) avec les données pour chaque photographe
+        // Créer un element article (fct initialisé getUserCardDOM, ds factories, ds photographer.js) avec les données pour chaque photographe
         photographers.forEach((photographer) => {
+            // ....=j'appelle la fct photographerFactory (créer ds photographer.js factories)
             const photographerModel = photographerFactory(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
-            
+            // La appendChild()méthode ajoute un nœud (élément) en tant que dernier enfant d'un élément.
             photographersSection.appendChild(userCardDOM);
         });
     };
 
     async function init() {
-        // Récupère les datas des photographes
+        // Récupère(=get aller chercher) les datas des photographes
         const { photographers } = await getPhotographers();
         displayData(photographers);
     };
     
     init();
+
+    Element.userCardDOM
     

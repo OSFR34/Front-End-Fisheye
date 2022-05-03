@@ -1,12 +1,12 @@
 // L’évènement DOMContentLoaded est émis lorsque le document HTML initial a été complètement chargé et analysé, sans attendre que les feuilles de style, images et sous-documents aient terminé de charger.
 // La addEventListener()méthode attache un gestionnaire d'événements à un élément.
 document.addEventListener("DOMContentLoaded", ()=>{
-       // On recupere l'id du photographe situee dans l'url
+       // Récupere l'id du photographe sélectionné et crée une nouvelle url qui pointe dans le document vers l'id de ce photographe. 
        const photographerId = new URL(document.location).searchParams.get("id");
 
        // méthode globale fetch() récupérer des données des photographes à travers le fichier.json de manière asynchrone.
-      // entre parenthèses après fetch prend en 1ère argument qui l'url de la ressource que ns souhaitons récupérer. 
-       fetch("../../data/photographers.json")
+      // entre parenthèses après fetch prend en 1ère argument qui l'url, le chemin de la ressource que ns souhaitons récupérer. 
+       fetch("./data/photographers.json")
           // Ensuite, on va avoir then(première promesse) qui va contenir notre réponse (traduc then= response). les données seront brut et non accessible.
           .then((response)=>{
             // pour que les données soient accessible, je la transforme en format json 
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
               // Affiche le tarif par photographe dans l'encart total likes
               document.querySelector("#photographer-price-day").textContent = `${photographerInfos.price} € / jour`;
        }
-      //  Obtenir les médias des photographes  par id du photographe ds le tableau des médias 
+        //  Obtenir les médias des photographes  par id du photographe ds le tableau des médias 
        function getPhotographerMedias(mediasArray, idPhotograph){
             // Retourne un tableau des médias filtrés par média 
             return mediasArray.filter((media)=>{
@@ -114,12 +114,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 return Number(media.photographerId) === Number(idPhotograph);
             });
        }
-// Affichage de tous les médias par photographe avec comme paramètre le tableau des médias
+        // CREATION ET AFFICHAGE DE TOUS LES MEDIAS PAR PHOTOGRAPHES
        function displayPhotographerMedia(arrayMedias){
-                // création de la variable/ "" signifie chaine de caractères.
               let htmlMedias = "";
-            // récupération de chaque média ds le tableau des médias
-             arrayMedias.forEach((media, index)=>{
+            // récupération de chaque média et son index ds le tableau des médias
+             arrayMedias.forEach((media)=>{
                     // htmlMedias permet la création du html/+= l'opérateur addition et égale permet la concaténation de la variable arrayMedias (qui récupére chaque média) AVEC le contenu des bactiques.(=étant ici l'assignation)
                   htmlMedias += `                  
                     <div class="gallery-element">        
@@ -146,21 +145,19 @@ document.addEventListener("DOMContentLoaded", ()=>{
                   media.addEventListener("click", ()=>{
 
                     // verification avt de passer à la suite: 
-                    // alert(index) résultat on doit retrouver 0 qd on clique sur la première image.
+                    // alert(index) résultat on doit retrouver l'index 0 qd on clique sur la première image.
                     //j'appelle la fct  lightBox et lui précisant les vrais valeurs de ces paramètres (1er argument qui est une variable=arrayMedias crée plus haut, et le paramètre index qui est une méthode)
 
                         lightBox(arrayMedias, index);
                         // puis je retourne ds la page lightbox pour une vérification avec un console.log 
-
                   });
-
              });
 
-    /* --------------- TOTAL LIKES -----------------*/
+/* --------------------- TOTAL LIKES -----------------*/
 
-    // initialisation de la variable à 0.
+              // initialisation de la variable à 0.
              let totalNumberOfLikes = 0;
-/*syntaxe for (initialisation; condition: la boucle sera exécuté tant que i sera inférieur à la longueur du tableau des médias;incrémentation +1 : À chaque éxécution, la variable "i" augmentera de 1.Lorsque'elle sera arrivée à la longueur du tableau, le boucle se terminera.*/
+              /*syntaxe for (initialisation; condition: la boucle sera exécuté tant que i sera inférieur à la longueur du tableau des médias;incrémentation +1 : À chaque éxécution, la variable "i" augmentera de 1.Lorsque'elle sera arrivée à la longueur du tableau, le boucle se terminera.*/
              for(let i=0; i<arrayMedias.length; i++){
                   // affectation après addition de la somme des itérations des likes du tableau des médias en valeur number.
                   totalNumberOfLikes += Number(arrayMedias[i].likes);
