@@ -23,7 +23,7 @@
 }
 
 #background_modal {
-    background-color: #fff;
+    background-color: #ffffff94;
     position: fixed;
     left: 0;
     top: 0;
@@ -35,7 +35,7 @@
 
 .modal {
     border-radius: 5px;
-    background-color: #db8976de;
+    background-color:  #db8976;
     width: 500px;
     display: flex;
     flex-direction: column;
