@@ -1,7 +1,6 @@
 /*--------------------CREATION D'UNE FONCTION USINE ------------------------ */
 
-//  Affectation par destructuration (data est un objet, ici c'est un photographe)
-// La destructuration fournit un moyen simple mais efficace de créer des variables à partir de morceaux d'un tableau ou des propriétés d'un objet 
+//  Affectation par destructuration 
 function photographerFactory(data) {
     
     const { name, portrait, id, city, country, tagline, price } = data;

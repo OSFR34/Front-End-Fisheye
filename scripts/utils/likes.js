@@ -5,14 +5,12 @@
 AU CLIC SON NOMBRE DOIT ETRE INCREMENTE DE + 1 ET AINSI QUE POUR LE TOTAL  */
 
 function likes(){     
-      // constante qui selectionne toutes les icones coeur dans la galerie.
+      
      const hearts = document.querySelectorAll(".fa-heart");
-      // console.log (hearts);
-      // variable qui selectionne id avec le total des coeurs
+      
      let totalNumberOfLikes = document.querySelector("#photographer-all-likes");
-      // j'appelle ma constante des coeurs et je lui applique la méthode forEach pour chaque coeur
+     
      hearts.forEach((heart)=>{
-      // au click d'un coeur je lance la fct callback
             heart.addEventListener("click", function(){
                   addLike(heart);
             });
@@ -23,8 +21,7 @@ function likes(){
      document.addEventListener("keydown", (event)=>{
 // si la touche enfoncée est entrer
              if(event.key === "Enter"){
-// event.target renvoi id de la cible qui avait le focus qd on a appuyer sur la touche.
-// .classList renvoi un tableau et [1]indique indique voulu
+
                   if(event.target?.classList[1] === "fa-heart"){
                         // retourne la fct addLike
                         return addLike(event.target);
