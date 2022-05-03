@@ -15,6 +15,7 @@ function photographerFactory(data) {
         photographerLink.setAttribute("href",`photographer.html?id=${id}`);
         const img = document.createElement ('img');
         img.setAttribute("src", picture);
+        img.setAttribute("alt", name);
         // La appendChild()méthode ajoute un nœud (élément) en tant que dernier enfant d'un élément.
         photographerLink.appendChild(img);
         const photographerName = document.createElement('h2');

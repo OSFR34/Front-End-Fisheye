@@ -155,7 +155,7 @@ document.querySelector(".btn-submit").addEventListener("click", function(event){
     const successMessage = `
 
         <div id="crossSuccessMessage">
-            <img src="assets/icons/close.svg" onclick="closeModal()" /> 
+            <img src="assets/icons/close.svg"  /> 
         </div> 
     
         <div id="success-message"> Votre message a bien été transmis.<br><br>
@@ -170,13 +170,11 @@ document.querySelector(".btn-submit").addEventListener("click", function(event){
     modalGlobal.innerHTML = successMessage;
 
         document.querySelector("#closeSuccessMessage").addEventListener("click", function () {
-            document.querySelector("#background_modal").style.display = "none";
-            modalGlobal.innerHTML = modalContain;
+            window.location.reload();
         });
 
         document.querySelector("#crossSuccessMessage").addEventListener("click", function () {
-            document.querySelector("#background_modal").style.display = "none";
-            modalGlobal.innerHTML = modalContain;
+            window.location.reload();
         });
 
     }
